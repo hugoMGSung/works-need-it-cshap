@@ -1,0 +1,87 @@
+﻿@model EddyNewHome.Models.BoardArticles
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var result = '@ViewBag.Result';
+            if (result == "OK") {
+                alert("정상적으로 저장되었습니다");
+            }
+            if (result == "FAIL") {
+                alert("저장에 실패했습니다");
+            }
+        });
+
+        function fnSaveCheck() {
+            return true;
+        }
+    </script>
+}
+
+<div id="feedback" class="inner-content">
+
+    <section id="page-title" class="inner-section">
+        <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
+            <h2 class="font-accident-two-normal uppercase">Board</h2>
+            <h5 class="font-accident-one-bold hovercolor uppercase">If you need anything else to us, write this...</h5>
+            <p class="small fontcolor-medium">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id metus purus. Ut vulputate, est vel tincidunt mattis, orci neque iaculis lectus, et interdum quam felis vel tortor. Fusce ultrices dui quis nunc dignissim faucibus. Ut ac odio quis nibh viverra fringilla ac id nisi. Suspendisse tincidunt augue quis ligula cursus, non efficitur ligula faucibus. Mauris id neque maximus, tincidunt metus et, sodales nulla.
+            </p>
+        </div>
+    </section>
+
+    <!-- Board Block -->
+    <section class="inner-section feedback feedback-light">
+
+        <div class="container-fluid nopadding">
+
+            <div class="row">
+
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-8 e-centered wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+                    <div class="dividewhite2"></div>
+                    <div id="form-messages"></div>
+                    <form method="post" action="@Url.Action("Create", "Board")" class="wpcf7-form">
+
+                        <div class="field">
+                            @*@Html.TextBoxFor(m => m.ArticleType, new { placeHolder = "게시글 유형을 입력하세요" })*@
+                            @Html.DropDownListFor(m => m.ArticleType, new SelectList(new List<object>
+                               {
+                                   new { value = "", text = "유형을 선택하세요" },
+                                   new { value = "1", text = "C#" },
+                                   new { value = "2", text = "JAVA" },
+                                   new { value = "3", text = "C++" }
+                               }, "value", "text", Model.ArticleType))
+                        </div>
+
+                        <div class="field">
+                            @Html.TextBoxFor(m => m.Title, new { placeHolder = "제목을 입력하세요" })
+                        </div>
+
+                        <div class="field">
+                            @Html.TextAreaFor(m => m.Contents, new { placeHolder = "내용을 입력하세요" })
+                        </div>
+
+                        <div class="dividewhite2"></div>
+
+                        <div class="field text-center">
+                            <button type="submit" class="btn btn-lg btn-lgr-str" onclick="return fnSaveCheck();">Save</button>
+                            <a href="/Board/List" class="btn btn-lg btn-lgr-str">List</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-12 divider-dynamic"></div>
+            </div>
+
+        </div>
+
+        <div class="dividewhite6"></div>
+
+    </section>
+    <!-- Board Block -->
+</div>

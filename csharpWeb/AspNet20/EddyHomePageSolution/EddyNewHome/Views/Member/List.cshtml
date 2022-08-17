@@ -1,0 +1,102 @@
+﻿@model IEnumerable<EddyNewHome.Models.Members>
+
+@{
+    ViewBag.Title = "List";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(".footable").footable();
+        });
+    </script>
+}
+
+<div id="feedback" class="inner-content">
+    <section id="page-title" class="inner-section">
+        <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
+            <h2 class="font-accident-two-normal uppercase">Member List</h2>
+            <h5 class="font-accident-one-bold hovercolor uppercase">
+                @Html.ActionLink("Register", "Entry")
+            </h5>
+        </div>
+    </section>
+
+    <!-- List Block -->
+    <section class="inner-section feedback feedback-light">
+        <div class="container-fluid nopadding">
+            <div class="row">
+                <div class="col-md-12 e-centered wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+                    <!-- 실제 리스트 영역 시작 -->
+                    <table class="footable table table-striped toggle-arrow-tiny" data-page-size="10">
+                        <thead>
+                            <tr>
+                                <th data-sort-ignore="true">Number</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MemberID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MemberName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Telephone)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EntryDate)
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            @{
+                                int idx = 1;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@idx</td>
+                                    <td>
+                                        <a href="/Member/Edit?memberid=@item.MemberID">@item.MemberID</a>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MemberName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Telephone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EntryDate)
+                                    </td>
+
+                                </tr>
+                                idx++;
+                            }
+                        </tbody>
+                        
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" style="text-align:center;">
+                                    <ul class="pagination pull-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!-- 실제 리스트 영역 끝 -->
+                </div>
+                <div class="col-md-12 divider-dynamic"></div>
+            </div>
+
+        </div>
+
+        <div class="dividewhite6"></div>
+
+    </section>
+</div>
+
+

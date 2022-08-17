@@ -1,0 +1,34 @@
+﻿<Page x:Class="StartCaliburnApp.Views.ButtonView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:cal="http://www.caliburnproject.org"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:local="clr-namespace:StartCaliburnApp.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="300"
+      Title="ButtonView">
+    <Grid>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Width="100">
+        <Button Content="Click me" Height="40" x:Name="TestButton" />
+        <Button Content="Click me 0" Height="40"
+                cal:Message.Attach="[Event Click] = [Action TestButton0($source)]" />
+        <Button Content="Click me 1" Height="40"
+                cal:Message.Attach="[Event PreviewMouseUp] = [Action HelloClicked1($eventArgs)]" />
+        <Button Content="Click me 2" Height="40" x:Name="TestButton2"
+                cal:Message.Attach="[Event PreviewMouseUp] = [Action HelloClicked2($source, $eventArgs)]" />
+        <Button Content="Click me 3" Height="40" x:Name="TestButton3"
+                Command="{Binding ButtonTest}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}" />
+        <Button Content="Click me 4" Height="40">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding ButtonClick}"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+    </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,70 @@
+﻿<Page x:Class="BikeShop.TestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BikeShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TestPage" Loaded="Page_Loaded">
+
+    <Grid>
+        <!--<Grid Width="150" Height="150" Background="Red">
+            <Button Content="Click Test" Margin="10" />
+        </Grid>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 그리드 표현 보기위한 예제 -->
+        <!--<Button Content="Button01" Grid.Row="0" Grid.Column="0" Margin="10" />
+        <ComboBox Grid.Row="0" Grid.Column="1" Margin="10" Height="35" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <TextBlock Text="Element 1" />
+            <TextBlock Text="Element 2" />
+            <Label Content="Element 3" />
+            <GroupBox Header="Elemenr 4">
+                Blar Blar Blar Blar
+            </GroupBox>
+        </ComboBox>
+        <Button Content="Button03" Grid.Row="0" Grid.Column="2" Margin="10" />
+        <Button Content="Button04" Grid.Row="1" Grid.Column="0" Margin="10" />
+        --><!--<Button Content="Button05" Grid.Row="1" Grid.Column="1" Margin="10" />--><!--
+        <Button Content="Button06" Grid.Row="1" Grid.Column="2" Margin="10" />
+        <Button Content="Button07" Grid.Row="2" Grid.Column="0" Margin="10" />
+        <Button Content="Button08" Grid.Row="2" Grid.Column="1" Margin="10" />
+        <Button Content="Button09" Grid.Row="2" Grid.Column="2" Margin="10" />-->
+        <!-- 데이터바인딩 예제 -->
+        <!--<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Vertical">
+            <Slider x:Name="slider" Minimum="0" Maximum="100" Value="50" Height="50" />
+            <ProgressBar Value="{Binding Value, ElementName=slider}" Height="50" />
+            <TextBlock TextAlignment="Center" Text="{Binding Value, StringFormat={}{0:#}%, ElementName=slider}" FontSize="20" />
+        </StackPanel>-->
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
+            <ComboBox ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ComboBox.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <StackPanel>
+                            <TextBlock Text="Speed" />
+                            <TextBox Text="{Binding Speed, StringFormat={}{0:#}}" />
+                            <Slider Value="{Binding Speed}" Maximum="100" />
+                            <TextBlock Text="Color" />
+                            <Border Height="10">
+                                <Border.Background>
+                                    <SolidColorBrush Color="{Binding Color}" />
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Text="{Binding Color}" />
+                        </StackPanel>
+                    </ItemContainerTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Page>

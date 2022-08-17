@@ -1,0 +1,129 @@
+﻿<mah:MetroWindow x:Class="MigrationUIApp.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MigrationUIApp.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000"
+        Background="{DynamicResource MaterialDesignPaper}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="12*" />
+                <RowDefinition Height="59*" />
+                <RowDefinition Height="13*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+            Style="{StaticResource MaterialDesignHeadline3TextBlock}" 
+            TextAlignment="Center"
+            Text="List of Employees"/>
+
+            <DataGrid x:Name="GrdEmployee" Grid.Row="1" Margin="5" CanUserResizeColumns="True"
+            ItemsSource="{Binding Employees, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedEmployee, Mode=OneWayToSource}"
+            AutoGenerateColumns="True" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn Header="Id" Width="100" Binding="{Binding Path=Id}" />
+                <DataGridTextColumn Header="EmpName" Width="180" Binding="{Binding Path=EmpName}" />
+                <DataGridTextColumn Header="Salary" Width="120" Binding="{Binding Path=Salary}" />
+                <DataGridTextColumn Header="DeptName" Width="150" Binding="{Binding Path=Salary}" />
+                <DataGridTextColumn Header="Destination" Width="*" Binding="{Binding Path=Destination}" />-->
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="2" Width="300">
+                <Button x:Name="GetEmployees"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Height="50"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                ToolTip="Get Lists" Content="Get Lists" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" Width="400" Height="300" x:Name="SelectedEmployee">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1.3*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}" Text="Id" />
+            <TextBlock Grid.Row="1" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="EmpName" />
+            <TextBlock Grid.Row="2" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="Salary" />
+            <TextBlock Grid.Row="3" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="DeptName" />
+            <TextBlock Grid.Row="4" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="Destination" />
+
+            <TextBox
+                Grid.Row="0" Grid.Column="1"
+                materialDesign:HintAssist.Hint="Id (Don't type)"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Margin="2" IsReadOnly="True"
+                VerticalAlignment="Center"
+                Text="{Binding Path=Id, Mode=TwoWay}"/>
+            <TextBox
+                Grid.Row="1" Grid.Column="1"
+                materialDesign:HintAssist.Hint="Type employee name"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Margin="2"
+                VerticalAlignment="Center"
+                Text="{Binding Path=EmpName, Mode=TwoWay}"/>
+            <TextBox
+                Grid.Row="2" Grid.Column="1"
+                materialDesign:HintAssist.Hint="Type salary"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Margin="2"
+                VerticalAlignment="Center"
+                Text="{Binding Path=Salary, Mode=TwoWay}"/>
+            <TextBox
+                Grid.Row="3" Grid.Column="1"
+                materialDesign:HintAssist.Hint="Type department name"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Margin="2"
+                VerticalAlignment="Center"
+                Text="{Binding Path=DeptName, Mode=TwoWay}"/>
+            <TextBox
+                Grid.Row="4" Grid.Column="1"
+                materialDesign:HintAssist.Hint="Type destination"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Margin="2"
+                VerticalAlignment="Center"
+                Text="{Binding Path=Destination, Mode=TwoWay}"/>
+
+            <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                        Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button
+                    x:Name="SaveEmployee"
+                    Width="150"
+                    Content="Save Employee" ToolTip="Save Employee"
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Height="50" Margin="5"
+                    materialDesign:ButtonAssist.CornerRadius="5" />
+
+                <Button
+                    x:Name="NewEmployee"
+                    Width="150"
+                    Content="New Employee" ToolTip="New Employee"
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Height="50" Margin="5"
+                    materialDesign:ButtonAssist.CornerRadius="5" />
+            </StackPanel>
+            
+        </Grid>
+        
+    </Grid>
+</mah:MetroWindow>

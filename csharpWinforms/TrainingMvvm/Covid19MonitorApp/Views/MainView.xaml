@@ -1,0 +1,203 @@
+﻿<mah:MetroWindow x:Class="Covid19MonitorApp.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:MetroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+        xmlns:local="clr-namespace:Covid19MonitorApp"
+        mc:Ignorable="d"
+        Height="720" Width="880" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="virus2.png">
+    <mah:MetroWindow.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="TotalBackgroundColor">#FFD1C4E9</SolidColorBrush>
+            <SolidColorBrush x:Key="ChartBackgroundColor">#FF5F1269</SolidColorBrush>
+        </ResourceDictionary>
+    </mah:MetroWindow.Resources>
+    <Grid Background="{DynamicResource TotalBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <materialDesign:Card
+            Grid.Row="0" Grid.Column="0"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            Height="120" Margin="15">
+            <Grid>
+                <Grid Width="50" Height="50" Background="#ff6f00" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <materialDesign:PackIcon 
+                        Kind="BacteriaOutline" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" 
+                        Foreground="White" Width="30" Height="30"/>
+                </Grid>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"
+                           Foreground="#FF6F00" FontSize="20" FontWeight="Bold"
+                           Text="확진자수" />
+                <StackPanel Orientation="Horizontal" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right"
+                            Margin="20" 
+                            Cursor="Hand">
+                <TextBlock Text="{Binding CovidDetails.Confirmed.value, StringFormat='{}{0:0,0}'}" 
+                           VerticalAlignment="Center" 
+                           Foreground="Gray"
+                           FontSize="30"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+            Grid.Row="0" Grid.Column="1"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            Height="120" Margin="15">
+            <Grid>
+                <Grid Width="50" Height="50" Background="#FF41A43C" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <materialDesign:PackIcon 
+                        Kind="HealthPotion" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" 
+                        Foreground="White" Width="30" Height="30"/>
+                </Grid>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"
+                           Foreground="#FF41A43C" FontSize="20" FontWeight="Bold"
+                           Text="회복자수" />
+                <StackPanel Orientation="Horizontal" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right"
+                            Margin="20" 
+                            Cursor="Hand">
+                    <TextBlock Text="{Binding CovidDetails.Recovered.value, StringFormat='{}{0:0,0}'}" 
+                           VerticalAlignment="Center" 
+                           Foreground="Gray"
+                           FontSize="30"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+            Grid.Row="0" Grid.Column="2"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            Height="120" Margin="15">
+            <Grid>
+                <Grid Width="50" Height="50" Background="#FFCF1F1F" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <materialDesign:PackIcon 
+                        Kind="Cross" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" 
+                        Foreground="White" Width="30" Height="30"/>
+                </Grid>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"
+                           Foreground="#FFCF1F1F" FontSize="20" FontWeight="Bold"
+                           Text="사망자수" />
+                <StackPanel Orientation="Horizontal" 
+                            VerticalAlignment="Bottom" 
+                            HorizontalAlignment="Right"
+                            Margin="20" 
+                            Cursor="Hand">
+                    <TextBlock Text="{Binding CovidDetails.Deaths.value, StringFormat='{}{0:0,0}'}" 
+                           VerticalAlignment="Center" 
+                           Foreground="Gray"
+                           FontSize="30"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+            Grid.Row="1" Grid.Column="0"
+            Height="50" Margin="15"
+            materialDesign:ShadowAssist.ShadowDepth="Depth1">
+            <Grid>
+                <Grid Width="50" Height="50" Background="#311B92" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <materialDesign:PackIcon 
+                        Kind="Calendar" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" 
+                        Foreground="White" Width="30" Height="30"/>
+                </Grid>
+                <TextBlock Text="{Binding CovidDetails.lastUpdate, StringFormat='{}{0:yyyy-MM-dd HH:mm:ss}'}"    
+                           VerticalAlignment="Center" HorizontalAlignment="Center"     
+                           Foreground="Gray"     
+                           FontSize="18"     
+                           Margin="40 0 0 0" />
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+            Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+            Height="50" Margin="15"
+            materialDesign:ShadowAssist.ShadowDepth="Depth1">
+            <Grid>
+                <Grid Width="50" Height="50" 
+                      Background="#455A64" 
+                      HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="#455A64" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>
+                    <materialDesign:PackIcon Kind="Map" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" 
+                        Foreground="White" 
+                        Width="30" Height="30"/>
+                </Grid>
+                <!-- ComboBox -->
+                <ComboBox x:Name="ComboBoxCountries"
+                          Width="400"
+                          ItemsSource="{Binding AffectedCountries.countries}"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          SelectedItem="{Binding SelectedCountry}" 
+                          FontSize="16"
+                          Margin="50 0 0 0"
+                          DisplayMemberPath="name"
+                          SelectedValuePath="Iso2"
+                          VerticalAlignment="Center"
+                          materialDesign:HintAssist.Hint="국가선택(영어)"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{Binding ElementName=BorderChart}"/>
+            </Grid.OpacityMask>
+            <Border x:Name="BorderChart"
+                CornerRadius="15"
+                Background="{StaticResource ChartBackgroundColor}"
+                Margin="20" />
+            <MetroChart:RadialGaugeChart 
+                Background="{x:Null}" 
+                ChartTitle="비율차트:" 
+                Foreground="LightGray"
+                Margin="20,5,0,0" ChartSubTitle="">
+                <MetroChart:RadialGaugeChart.Series>
+                    <MetroChart:ChartSeries
+                        DisplayMember="Description"
+                        ItemsSource="{Binding ChartdetailsList}"
+                        SeriesTitle="Description"
+                        ValueMember="Value" 
+                        HorizontalAlignment="Center"/>
+                </MetroChart:RadialGaugeChart.Series>
+            </MetroChart:RadialGaugeChart>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

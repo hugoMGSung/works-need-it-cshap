@@ -1,0 +1,106 @@
+﻿<mah:MetroWindow x:Class="MvvmApp.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:MvvmApp.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Height="220" Width="450">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Last Name : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="First Name : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Email : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Date : "
+                       VerticalAlignment="Center" Margin="5" />
+
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="5" mah:TextBoxHelper.Watermark="Type Last Name" 
+                     Text="{Binding InLastName}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5" mah:TextBoxHelper.Watermark="Type Fist Name"
+                     Text="{Binding InFirstName}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5" mah:TextBoxHelper.Watermark="Type Email"
+                     Text="{Binding InEmail}"/>
+            <DatePicker Grid.Row="3" Grid.Column="1" Margin="5"
+                        SelectedDate="{Binding InDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Click"
+                    Width="200" Margin="3" HorizontalAlignment="Center"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    Command="{Binding ClickCommand}" />
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="30"
+              Background="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="20" FontWeight="Bold"
+                   Content="Result" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="First Name : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Email : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Date : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Adult : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Birthday : "
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Chinese Zodiac : "
+                       VerticalAlignment="Center" Margin="5" />
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding OutLastName}"
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding OutFirstName}"
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding OutEmail}"
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding OutDate}"
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding OutAdult}"
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding OutBirthday}"
+                       VerticalAlignment="Center" Margin="5" />
+            <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding OutChnZodiac}"
+                       VerticalAlignment="Center" Margin="5" />
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

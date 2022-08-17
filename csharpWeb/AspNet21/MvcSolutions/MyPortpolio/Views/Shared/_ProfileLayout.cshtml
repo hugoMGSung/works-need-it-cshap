@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("HeadPage.cshtml")
+<body class="profile-page sidebar-collapse">
+    @Html.Partial("NavPage.cshtml")
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/city-profile.jpg');"></div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    @Html.Partial("FooterPage.cshtml")
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,12 @@
+banana
+apple
+peach
+pear
+strawberry
+딸기
+라즈베리
+배
+exit
+sdf
+다른 과일dsf
+apple2

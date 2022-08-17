@@ -1,0 +1,90 @@
+﻿<mah:MetroWindow x:Class="NewLiveChartApp.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:NewLiveChartApp.Views"
+        mc:Ignorable="d"
+        Title="ShellVIew" Height="720" Width="1280" WindowStartupLocation="CenterScreen">
+    <mah:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconTypicons Kind="ChartBar" Foreground="White" Margin="5, 7, 0, 0" />
+        </DataTemplate>
+    </mah:MetroWindow.IconTemplate>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_Chart">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconTypicons Kind="ChartLineOutline" />
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="LoadLineChart" Header="LineChart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartBellCurveCumulative" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadGaugeChart" Header="Gauge Chart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="Gauge" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadGauge360Chart" Header="Gauge360 Chart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="GaugeFull" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadBasicBarChart" Header="Basic BarChart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartBoxOutline" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadBasicLineAndBubble" Header="Basic LineChart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartLine" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadConstantChart" Header="ConstantChart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartBellCurve" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadCandleChart" Header="CandleChart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="SwapVerticalBold" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadPieChart" Header="PieChart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconTypicons Kind="ChartPieOutline" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_LiveChart Sample">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconTypicons Kind="ChartLine" />
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="LoadSpeedTest" Header="LineChart">                        
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartHistogram" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadMaterialDesign" Header="Material Design">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartBoxPlusOutline" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="LoadRealtimeChart" Header="RealTime Chart">
+                        <MenuItem.Icon>
+                            <iconPacks:PackIconMaterial Kind="ChartLineStacked" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid Background="{StaticResource MahApps.Brushes.Window.Background}">
+            <ContentControl x:Name="ActiveItem" />
+        </Grid>
+    </DockPanel>
+</mah:MetroWindow>

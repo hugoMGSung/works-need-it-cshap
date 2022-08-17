@@ -1,0 +1,36 @@
+﻿<Window x:Class="StartCaliburnApp.Views.ButtonsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:StartCaliburnApp.Views"
+        mc:Ignorable="d"
+        Title="ButtonsView" Height="300" Width="300">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="ButtonClick"
+            Grid.Row="0" Content="Basic Button" />
+
+        <Button 
+            cal:Message.Attach="[Event Click] = [Action Button2Click($source)]"
+            Grid.Row="1" Content="Parameter Button" />
+
+        <Button 
+            Grid.Row="3" Content="Press me">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding ClickCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+    </Grid>
+</Window>

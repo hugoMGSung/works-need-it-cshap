@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfControlApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfControlApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="100,49,0,0" VerticalAlignment="Top" Width="124" Height="51" TabIndex="0"/>
+        <ToggleButton Content="Button" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="124" Height="51" TabIndex="1"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="100,132,0,0" VerticalAlignment="Top" Height="32" Width="124" TabIndex="2"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="100,164,0,0" VerticalAlignment="Top" TabIndex="5"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="100,184,0,0" VerticalAlignment="Top" TabIndex="6"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="224,132,0,0" VerticalAlignment="Top" Height="32" Width="124" TabIndex="3"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="348,132,0,0" VerticalAlignment="Top" Height="32" Width="124" TabIndex="4"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="100,204,0,0" VerticalAlignment="Top" TabIndex="7"/>
+
+    </Grid>
+</Window>

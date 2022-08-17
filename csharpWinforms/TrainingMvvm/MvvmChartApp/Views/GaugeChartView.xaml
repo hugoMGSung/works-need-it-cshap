@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MvvmChartApp.Views.GaugeChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:local="clr-namespace:MvvmChartApp.Views"
+             mc:Ignorable="d" 
+             Height="650" Width="1280">
+    <Grid>
+        <lvc:AngularGauge Value="{Binding AngValue}" FromValue="0" ToValue="300"
+                          LabelsStep="50" TicksStep="10" Wedge="300"
+                          Foreground="White" TicksForeground="White"
+                          FontSize="25" FontWeight="Bold"
+                          SectionsInnerRadius=".5">
+            <lvc:AngularGauge.Sections>
+                <lvc:AngularSection FromValue="0" ToValue="50" Fill="Green" />
+                <lvc:AngularSection FromValue="50" ToValue="250" Fill="#F8A725" />
+                <lvc:AngularSection FromValue="250" ToValue="300" Fill="#FF3939" />
+            </lvc:AngularGauge.Sections>
+        </lvc:AngularGauge>
+    </Grid>
+</UserControl>

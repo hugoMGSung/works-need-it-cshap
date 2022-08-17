@@ -1,0 +1,72 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:WpfMqttMonApp.Views"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+    x:Class="WpfMqttMonApp.Views.DatabaseMonView"
+    mc:Ignorable="d" 
+    d:DesignHeight="610" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <Style x:Key="ConsoleTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <ScrollViewer RenderTransformOrigin="0.5,0.5" VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer.RenderTransform>
+                                <ScaleTransform ScaleY="-1"/>
+                            </ScrollViewer.RenderTransform>
+                            <TextBox Text="{TemplateBinding Text}" RenderTransformOrigin="0.5,0.5">
+                                <TextBox.RenderTransform>
+                                    <ScaleTransform ScaleY="-1"/>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Database Monitoring" Style="{StaticResource MaterialDesignLabel}" FontSize="28" Margin="10, 0, 0, 0" />
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="Broker URL"  />
+            <TextBlock x:Name="BrokerUrl" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignBody1TextBlock}"  />
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="Topic"  />
+            <TextBlock x:Name="Topic" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignBody1TextBlock}"  />
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource MaterialDesignBody1TextBlock}" Text="Database Server"  />
+            <TextBox x:Name="ConnString" Grid.Row="2" Grid.Column="1" Style="{StaticResource MaterialDesignTextBoxBase}" 
+                     FontSize="14" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource MaterialDesignBody1TextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Connect"  />
+            <ToggleButton x:Name="Connect" Margin="10, 0" IsChecked="{Binding IsConnected}"
+                          Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"/>
+
+            <TextBox x:Name="DbLog" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Background="AntiqueWhite"
+                     FontSize="12"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible" Style="{StaticResource ConsoleTextBox}" />
+        </Grid>
+    </Grid>
+</UserControl>

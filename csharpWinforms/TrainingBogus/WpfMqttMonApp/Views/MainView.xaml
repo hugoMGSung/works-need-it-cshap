@@ -1,0 +1,99 @@
+﻿<mah:MetroWindow x:Class="WpfMqttMonApp.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfMqttMonApp.Views"
+        mc:Ignorable="d"
+        Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <mah:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconMaterialDesign Kind="InsertChart" Foreground="White" Margin="5, 7, 0, 0" />
+        </DataTemplate>
+    </mah:MetroWindow.IconTemplate>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <StackPanel>
+                <Menu IsMainMenu="True">
+                    <MenuItem Header="_File">
+                        <MenuItem x:Name="PopInfoDialog" Header="Start">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="PlayCircle" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Stop">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="StopCircle" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem x:Name="ExitProgram" Header="Exit" InputGestureText="Ctrl+E">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="ExitToApp" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="_View">
+                        <MenuItem x:Name="LoadDatabaseView" Header="_DataBase">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Database" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="LoadRealTimeView" Header="_RealTime">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Timer" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="LoadHistoryView" Header="_History">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="History" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Cut" Command="Cut">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="ContentCut" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Copy" Command="Copy">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="ContentCopy" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Paste" Command="Paste">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="ContentPaste" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+                <ToolBarTray>
+                    <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                        <Button x:Name="StartSubscriber" ToolTip="Start MQTT Subscriber">
+                            <materialDesign:PackIcon Kind="PlayCircle" />
+                        </Button>
+                        <Button ToolTip="Stop">
+                            <materialDesign:PackIcon Kind="StopCircle" />
+                        </Button>
+                        <Separator />
+                        <Button Command="Cut" ToolTip="Cut" ToolBar.OverflowMode="AsNeeded">
+                            <materialDesign:PackIcon Kind="ContentCut" />
+                        </Button>
+                        <Button Command="Copy" ToolTip="Copy that stuff" ToolBar.OverflowMode="AsNeeded">
+                            <materialDesign:PackIcon Kind="ContentCopy" />
+                        </Button>
+                        <Separator />
+                        <Button Command="Paste" ToolTip="Paste some stuff" ToolBar.OverflowMode="AsNeeded">
+                            <materialDesign:PackIcon Kind="ContentPaste" />
+                        </Button>
+                    </ToolBar>
+                </ToolBarTray>
+            </StackPanel>
+        </Grid>
+        <Grid Background="WhiteSmoke">
+            <ContentControl x:Name="ActiveItem" />
+        </Grid>
+    </DockPanel>
+</mah:MetroWindow>

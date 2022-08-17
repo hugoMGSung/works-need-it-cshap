@@ -1,0 +1,75 @@
+﻿<Window x:Class="WpfMvvmApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMvvmApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1024">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Height="200" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130*" />
+                <ColumnDefinition Width="379*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Last Name : " Grid.Row="0" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="First Name : " Grid.Row="1" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Email : " Grid.Row="2" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Date : " Grid.Row="3" Grid.Column="0" FontSize="16" />
+
+            <TextBox Grid.Row="0" Grid.Column="1" FontSize="16" Margin="5" Text="{Binding InLastName}" />
+            <TextBox Grid.Row="1" Grid.Column="1" FontSize="16" Margin="5" Text="{Binding InFirstName}" />
+            <TextBox Grid.Row="2" Grid.Column="1" FontSize="16" Margin="5" Text="{Binding InEmail}" />
+            <DatePicker Grid.Row="3" Grid.Column="1" FontSize="16" Margin="5" SelectedDate="{Binding InDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Content="Proceed" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="150" Command="{Binding ProceedCommand}" />
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="1" Margin="30" Background="Azure">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55*" />
+                <ColumnDefinition Width="114*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Result" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock Text="Last Name" Grid.Row="1" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="First Name : " Grid.Row="2" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Email : " Grid.Row="3" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Date : " Grid.Row="4" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Adult : " Grid.Row="5" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Birthday : " Grid.Row="6" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="Zodiac : " Grid.Row="7" Grid.Column="0" FontSize="16" />
+            <TextBlock Text="ChnZodiac : " Grid.Row="8" Grid.Column="0" FontSize="16" />
+
+            <TextBlock Text="{Binding OutLastName}" Grid.Row="1" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutFirstName}" Grid.Row="2" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutEmail}" Grid.Row="3" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutDate}" Grid.Row="4" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutAdult}" Grid.Row="5" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutBirthday}" Grid.Row="6" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutZodiac}" Grid.Row="7" Grid.Column="1" FontSize="16" />
+            <TextBlock Text="{Binding OutChnZodiac}" Grid.Row="8" Grid.Column="1" FontSize="16" />
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EddyNewHomeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArticleComments">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="ArticleIDX" />
+          </Key>
+          <Property Name="MemberID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ArticleIDX" Type="int" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="RegistDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ArticleFiles">
+          <Key>
+            <PropertyRef Name="FileIDX" />
+          </Key>
+          <Property Name="FileIDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleIDX" Type="int" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="FileFormat" Type="varchar" MaxLength="50" />
+          <Property Name="UploadDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BoardArticles">
+          <Key>
+            <PropertyRef Name="ArticleIDX" />
+          </Key>
+          <Property Name="ArticleIDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BoardIDX" Type="int" />
+          <Property Name="ArticleType" Type="char" MaxLength="1" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Contents" Type="ntext" />
+          <Property Name="RegistMemberID" Type="varchar" MaxLength="20" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="20" />
+          <Property Name="ViewCnt" Type="int" />
+          <Property Name="RegistDate" Type="datetime" />
+          <Property Name="RegistUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MemberPWD" Type="varchar" MaxLength="20" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" />
+          <Property Name="EntryDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_ArticleComments_BoardArticles">
+          <End Role="BoardArticles" Type="Self.BoardArticles" Multiplicity="1" />
+          <End Role="ArticleComments" Type="Self.ArticleComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardArticles">
+              <PropertyRef Name="ArticleIDX" />
+            </Principal>
+            <Dependent Role="ArticleComments">
+              <PropertyRef Name="ArticleIDX" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleComments_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="ArticleComments" Type="Self.ArticleComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="ArticleComments">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleFiles_BoardArticles">
+          <End Role="BoardArticles" Type="Self.BoardArticles" Multiplicity="0..1" />
+          <End Role="ArticleFiles" Type="Self.ArticleFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardArticles">
+              <PropertyRef Name="ArticleIDX" />
+            </Principal>
+            <Dependent Role="ArticleFiles">
+              <PropertyRef Name="ArticleIDX" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardArticles_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+          <End Role="BoardArticles" Type="Self.BoardArticles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="BoardArticles">
+              <PropertyRef Name="RegistMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EddyNewHomeModelStoreContainer">
+          <EntitySet Name="ArticleComments" EntityType="Self.ArticleComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleFiles" EntityType="Self.ArticleFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoardArticles" EntityType="Self.BoardArticles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ArticleComments_BoardArticles" Association="Self.FK_ArticleComments_BoardArticles">
+            <End Role="BoardArticles" EntitySet="BoardArticles" />
+            <End Role="ArticleComments" EntitySet="ArticleComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleComments_Members" Association="Self.FK_ArticleComments_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="ArticleComments" EntitySet="ArticleComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleFiles_BoardArticles" Association="Self.FK_ArticleFiles_BoardArticles">
+            <End Role="BoardArticles" EntitySet="BoardArticles" />
+            <End Role="ArticleFiles" EntitySet="ArticleFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardArticles_Members" Association="Self.FK_BoardArticles_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="BoardArticles" EntitySet="BoardArticles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EddyNewHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ArticleComments">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="ArticleIDX" />
+          </Key>
+          <Property Name="MemberID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ArticleIDX" Type="Int32" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RegistDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BoardArticles" Relationship="Self.FK_ArticleComments_BoardArticles" FromRole="ArticleComments" ToRole="BoardArticles" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_ArticleComments_Members" FromRole="ArticleComments" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="ArticleFiles">
+          <Key>
+            <PropertyRef Name="FileIDX" />
+          </Key>
+          <Property Name="FileIDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleIDX" Type="Int32" />
+          <Property Name="FilePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="FileFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BoardArticles" Relationship="Self.FK_ArticleFiles_BoardArticles" FromRole="ArticleFiles" ToRole="BoardArticles" />
+        </EntityType>
+        <EntityType Name="BoardArticles">
+          <Key>
+            <PropertyRef Name="ArticleIDX" />
+          </Key>
+          <Property Name="ArticleIDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BoardIDX" Type="Int32" />
+          <Property Name="ArticleType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegistMemberID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ViewCnt" Type="Int32" />
+          <Property Name="RegistDate" Type="DateTime" Precision="3" />
+          <Property Name="RegistUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ArticleComments" Relationship="Self.FK_ArticleComments_BoardArticles" FromRole="BoardArticles" ToRole="ArticleComments" />
+          <NavigationProperty Name="ArticleFiles" Relationship="Self.FK_ArticleFiles_BoardArticles" FromRole="BoardArticles" ToRole="ArticleFiles" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_BoardArticles_Members" FromRole="BoardArticles" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MemberPWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MemberName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ArticleComments" Relationship="Self.FK_ArticleComments_Members" FromRole="Members" ToRole="ArticleComments" />
+          <NavigationProperty Name="BoardArticles" Relationship="Self.FK_BoardArticles_Members" FromRole="Members" ToRole="BoardArticles" />
+        </EntityType>
+        <Association Name="FK_ArticleComments_BoardArticles">
+          <End Role="BoardArticles" Type="Self.BoardArticles" Multiplicity="1" />
+          <End Role="ArticleComments" Type="Self.ArticleComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardArticles">
+              <PropertyRef Name="ArticleIDX" />
+            </Principal>
+            <Dependent Role="ArticleComments">
+              <PropertyRef Name="ArticleIDX" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleComments_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="ArticleComments" Type="Self.ArticleComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="ArticleComments">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArticleFiles_BoardArticles">
+          <End Role="BoardArticles" Type="Self.BoardArticles" Multiplicity="0..1" />
+          <End Role="ArticleFiles" Type="Self.ArticleFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardArticles">
+              <PropertyRef Name="ArticleIDX" />
+            </Principal>
+            <Dependent Role="ArticleFiles">
+              <PropertyRef Name="ArticleIDX" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardArticles_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+          <End Role="BoardArticles" Type="Self.BoardArticles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="BoardArticles">
+              <PropertyRef Name="RegistMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EddyNewHomeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArticleComments" EntityType="Self.ArticleComments" />
+          <EntitySet Name="ArticleFiles" EntityType="Self.ArticleFiles" />
+          <EntitySet Name="BoardArticles" EntityType="Self.BoardArticles" />
+          <EntitySet Name="Members" EntityType="Self.Members" />
+          <AssociationSet Name="FK_ArticleComments_BoardArticles" Association="Self.FK_ArticleComments_BoardArticles">
+            <End Role="BoardArticles" EntitySet="BoardArticles" />
+            <End Role="ArticleComments" EntitySet="ArticleComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleComments_Members" Association="Self.FK_ArticleComments_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="ArticleComments" EntitySet="ArticleComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArticleFiles_BoardArticles" Association="Self.FK_ArticleFiles_BoardArticles">
+            <End Role="BoardArticles" EntitySet="BoardArticles" />
+            <End Role="ArticleFiles" EntitySet="ArticleFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardArticles_Members" Association="Self.FK_BoardArticles_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="BoardArticles" EntitySet="BoardArticles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EddyNewHomeModelStoreContainer" CdmEntityContainer="EddyNewHomeEntities">
+          <EntitySetMapping Name="ArticleComments">
+            <EntityTypeMapping TypeName="EddyNewHomeModel.ArticleComments">
+              <MappingFragment StoreEntitySet="ArticleComments">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ArticleIDX" ColumnName="ArticleIDX" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="RegistDate" ColumnName="RegistDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleFiles">
+            <EntityTypeMapping TypeName="EddyNewHomeModel.ArticleFiles">
+              <MappingFragment StoreEntitySet="ArticleFiles">
+                <ScalarProperty Name="FileIDX" ColumnName="FileIDX" />
+                <ScalarProperty Name="ArticleIDX" ColumnName="ArticleIDX" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="FileFormat" ColumnName="FileFormat" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoardArticles">
+            <EntityTypeMapping TypeName="EddyNewHomeModel.BoardArticles">
+              <MappingFragment StoreEntitySet="BoardArticles">
+                <ScalarProperty Name="ArticleIDX" ColumnName="ArticleIDX" />
+                <ScalarProperty Name="BoardIDX" ColumnName="BoardIDX" />
+                <ScalarProperty Name="ArticleType" ColumnName="ArticleType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="RegistMemberID" ColumnName="RegistMemberID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="ViewCnt" ColumnName="ViewCnt" />
+                <ScalarProperty Name="RegistDate" ColumnName="RegistDate" />
+                <ScalarProperty Name="RegistUserName" ColumnName="RegistUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="EddyNewHomeModel.Members">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MemberPWD" ColumnName="MemberPWD" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

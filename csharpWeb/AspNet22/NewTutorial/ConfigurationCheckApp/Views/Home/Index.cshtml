@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h4 class="text-center">
+        @ViewBag.ApplicationName
+    </h4>
+    <h5 class="text-center">
+        Version: @ViewBag.ApplicationVersion
+    </h5>
+    <br />
+    <table class="table table-bordered table-striped" style="width:90%;">
+        <tr>
+            <td><b>Default URL</b></td>
+            <td>@ViewBag.ApplicationUrl</td>
+        </tr>
+        <tr>
+            <td><b>Support Email</b></td>
+            <td>@ViewBag.SupportEmail</td>
+        </tr>
+        <tr>
+            <td><b>Support Phone</b></td>
+            <td>@ViewBag.SupportPhone</td>
+        </tr>
+    </table>
+</div>

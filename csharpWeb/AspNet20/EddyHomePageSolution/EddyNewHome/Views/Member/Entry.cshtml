@@ -1,0 +1,142 @@
+﻿@using EddyNewHome.Models;
+
+@model EddyNewHome.Models.Members
+
+@{
+    ViewBag.Title = "Entry";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var result = '@ViewBag.Result';
+            if (result == "OK") {
+                alert("정상적으로 저장되었습니다");
+            }
+            if (result == "FAIL") {
+                alert("저장에 실패했습니다");
+            }
+        });
+
+        // 아이디 중복체크
+        function fnDoubleCheck() {
+            if ($("#MemberID").val() == "") {
+                alert("아이디를 입력하세요");
+                $("#MemberID").focus();
+                return false;
+            }
+
+            var result = document.getElementById("dupresult");
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "/Member/IDCheck?memberid=" + $("#MemberID").val(),
+                data: "{}",
+                dataType: "json"
+            }).done(function (response) {
+                if (response == "OK") {
+                    //alert("사용가능한 아이디입니다.");
+                    console.log(result.innerHTML = "사용가능한 아이디입니다");
+                    $("#btnSave").removeAttr("disabled");
+                } else {
+                    //alert("중복된 아이디입니다.");
+                    console.log(result.innerHTML = "중복된 아이디입니다");
+                    $("#MemberID").val("");
+                    $("#MemberID").focus();
+                    $("#btnSave").attr("disabled", true);
+                }
+            }).fail(function (data) {
+                if (data.responseText != "") {
+                    alert(data.responseText);
+                } else {
+                    alert("에러가 발생했습니다");
+                }
+            });
+        }
+
+        function fnSaveCheck() {
+            if ($("#MemberID").val() == "") {
+                alert("아이디를 입력하세요");
+                $("#MemberID").focus();
+                return false;
+            }
+            if ($("#MemberName").val() == "") {
+                alert("이름을 입력하세요");
+                $("#MemberName").focus();
+                return false;
+            }
+            if ($("#MemberPWD").val() == "") {
+                alert("암호를 입력하세요");
+                $("#MemberPWD").focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+
+<div id="feedback" class="inner-content">
+    <section id="page-title" class="inner-section">
+        <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
+            <h2 class="font-accident-two-normal uppercase">Register</h2>
+            <h5 class="font-accident-one-bold hovercolor uppercase">Hard-working person on the way to the success...</h5>
+            <p class="small fontcolor-medium">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id metus purus. Ut vulputate, est vel tincidunt mattis, orci neque iaculis lectus, et interdum quam felis vel tortor. Fusce ultrices dui quis nunc dignissim faucibus. Ut ac odio quis nibh viverra fringilla ac id nisi. Suspendisse tincidunt augue quis ligula cursus, non efficitur ligula faucibus. Mauris id neque maximus, tincidunt metus et, sodales nulla.
+            </p>
+        </div>
+    </section>
+
+    <!-- Feedback Block -->
+    <section class="inner-section feedback feedback-light">
+        <div class="container-fluid nopadding">
+            <div class="row">
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-8 e-centered wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+                    <div class="dividewhite2"></div>
+                    <div id="form-messages"></div>
+                    <form method="post" action="@Url.Action("Entry", "Member")" class="wpcf7-form">
+                        <div id="dupresult"></div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="field">
+                                    @Html.TextBoxFor(m => m.MemberID, new { placeHolder = "아이디를 입력하세요" })
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-lg btn-lgr-str" onclick="fnDoubleCheck();">중복체크</button>
+                            </div>
+                        </div>
+                        <div class="field">
+                            @Html.TextBoxFor(m => m.MemberName, new { placeHolder = "이름을 입력하세요" })
+                        </div>
+
+                        <div class="field">
+                            @Html.PasswordFor(m => m.MemberPWD, new { placeHolder = "암호를 입력하세요" })
+                        </div>
+
+                        <div class="field">
+                            @Html.TextBoxFor(m => m.Email, new { placeHolder = "메일을 입력하세요" })
+                        </div>
+
+                        <div class="field">
+                            @Html.TextBoxFor(m => m.Telephone, new { placeHolder = "폰번호를 입력하세요" })
+                        </div>
+
+                        <div class="dividewhite2"></div>
+
+                        <div class="field text-center">
+                            <button id="btnSave" type="submit" class="btn btn-lg btn-lgr-str" onclick="return fnSaveCheck();">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-12 divider-dynamic"></div>
+            </div>
+
+        </div>
+
+        <div class="dividewhite6"></div>
+
+    </section>
+    <!-- /Feedback Block -->
+</div>

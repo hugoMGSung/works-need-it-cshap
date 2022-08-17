@@ -1,0 +1,78 @@
+﻿<mah:MetroWindow x:Class="WpfMqttClientApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:WpfMqttClientApp"
+        mc:Ignorable="d"
+        Title="MQTTClient" Height="450" Width="800">
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button x:Name="btnSub" Click="btnSub_Click">구독</Button>
+            <Button x:Name="btnLogin" Click="btnLogin_Click">설정</Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl>
+            <mah:Flyout x:Name="flySub" AnimateOpacity="True" CloseButtonIsCancel="True" IsModal="True" Theme="Light" Position="Right" Header="Topic구독" Width="300">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Grid.Row="0" x:Name="dgSub" AutoGenerateColumns="False" ItemsSource="{Binding Path=AllTopics,Mode=TwoWay}" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding IsSelected}" Width="1*"></DataGridCheckBoxColumn>
+                        <DataGridTextColumn Binding="{Binding Topic}" Header="토픽" Width="2*"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Describe}" Header="설명" Width="2*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btnSave" Click="btnSave_Click">저장</Button>
+                </WrapPanel>
+            </Grid>
+        </mah:Flyout>
+            <mah:Flyout x:Name="flyLogin" AnimateOpacity="True" CloseButtonIsCancel="True" IsModal="True" Theme="Light" Position="Right" Header="보안증명" Width="300">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Text="{Binding UserName}" Width="240" Height="35" mah:TextBoxHelper.AutoWatermark="True" mah:TextBoxHelper.Watermark="아이디"></TextBox>
+                    <TextBox Grid.Row="1" Text="{Binding Password}" Width="240" Height="35" mah:TextBoxHelper.AutoWatermark="True" mah:TextBoxHelper.Watermark="비밀번호"></TextBox>
+                    <Button Grid.Row="2" Width="90" Height="30" x:Name="btnSaveConfig" Click="btnSaveConfig_Click">저장</Button>
+            </Grid>
+        </mah:Flyout>
+    </mah:FlyoutsControl>
+    </mah:MetroWindow.Flyouts>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="TextAlignment" Value="Center"></Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox Width="200" Text="{Binding ServerUri}" mah:TextBoxHelper.Watermark="IP"></TextBox>
+            <TextBox Width="80" Text="{Binding ServerPort}" mah:TextBoxHelper.Watermark="Port" Margin="5,0,0,0"></TextBox>
+            <Button x:Name="btnStart" Click="btnStart_Click" IsEnabled="{Binding IsDisConnected}" Margin="10,0">연결</Button>
+            <Button x:Name="btnStop" Click="btnStop_Click" IsEnabled="{Binding IsConnected}">종료</Button>
+        </WrapPanel>
+        <RichTextBox x:Name="txtRich" Grid.Row="1" Margin="10"></RichTextBox>
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ComboBox x:Name="comboTopics" ItemsSource="{Binding Path=AllTopics,Mode=TwoWay}" DisplayMemberPath="Topic" SelectedValuePath="Topic" Width="120"></ComboBox>
+            <TextBox x:Name="txtContent" Width="240" Margin="10,0"></TextBox>
+            <Button x:Name="btnPublish" Click="btnPublish_Click">발행</Button>
+        </WrapPanel>
+    </Grid>
+</mah:MetroWindow>

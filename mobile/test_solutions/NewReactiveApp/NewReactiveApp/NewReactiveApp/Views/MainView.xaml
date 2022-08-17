@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rxui:ReactiveContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:NewReactiveApp.ViewModels;assembly=NewReactiveApp"
+    xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    mc:Ignorable="d"
+    x:Class="NewReactiveApp.Views.MainView"
+    x:TypeArguments="vm:MainViewModel" >
+
+    <StackLayout Orientation="Vertical">
+        <!-- Place new controls here -->
+        <Entry x:Name="UserName" Placeholder="UserName"/>
+        <Entry x:Name="Password" Placeholder="Password" IsPassword="True"/>
+        <Entry x:Name="Address" Placeholder="Address"  />
+        <Entry x:Name="Phone" Placeholder="Phone Number" />
+        <Button x:Name="Register" Text="Register" TextColor="White" BackgroundColor="Gray" />
+        <Label x:Name="Result" />
+    </StackLayout>
+</rxui:ReactiveContentPage>
