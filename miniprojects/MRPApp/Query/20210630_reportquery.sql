@@ -1,0 +1,22 @@
+SELECT SCH.SchIdx, SCH.PlantCode, SCH.SchAmount, PRC.PrcDate,
+	   PRC.PRCOKAMOUNT, PRC.PRCFAILAMOUNT		
+  FROM Schedules as SCH
+   JOIN (
+		   SELECT UP.PrcDate, UP.SchIdx, 
+			   SUM(UP.PRCOK) AS PRCOKAMOUNT, 
+			   SUM(UP.PRCFAIL) AS PRCFAILAMOUNT 
+		 FROM (
+		SELECT 
+				PRC.PrcDate, PRC.SchIdx,
+				CASE PRC.PrcResult WHEN 1 THEN 1 END AS PRCOK,
+				CASE PRC.PrcResult WHEN 0 THEN 1 END AS PRCFAIL
+		  FROM Process as PRC) AS UP
+		 GROUP BY UP.PrcDate, UP.SchIdx
+   ) AS PRC
+   ON SCH.SchIdx = PRC.SchIdx
+ WHERE PRC.PrcDate BETWEEN '2021-06-30' AND '2021-06-30'
+
+
+
+
+
