@@ -9,8 +9,8 @@
 * VideoLAN.LibVLC.Windows
 * ITS 국가교통정보센터 OPEN API 
 
-![로딩화면](https://raw.githubusercontent.com/hugoMGSung/LearnMiniProject/main/Images/loading.png)
+![로딩화면](https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/Images/loading.png)
 
-![고속도로스트리밍](https://raw.githubusercontent.com/hugoMGSung/LearnMiniProject/main/Images/ex_sample.png)
+![고속도로스트리밍](https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/Images/ex_sample.png)
 
-![국도스트리밍](https://raw.githubusercontent.com/hugoMGSung/LearnMiniProject/main/Images/its_sample.png)
+![국도스트리밍](https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/Images/its_sample.png)
