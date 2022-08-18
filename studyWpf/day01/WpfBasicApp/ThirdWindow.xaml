@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfBasicApp.ThirdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBasicApp"
+        mc:Ignorable="d"
+        Title="ThirdWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Ellipse Width="100" Height="50" Fill="AliceBlue" Stroke="DarkBlue"
+                 StrokeThickness="3" />
+            <Rectangle Width="100" Height="50" Fill="LightGreen" Stroke="DarkGreen"
+                   StrokeThickness="4" />
+            <Path Width="200" Height="30" />
+
+            <!-- 
+        <Path Fill="Blue">
+            <Path.Data>
+                <EllipseGeometry Center="50,50" RadiusX="30" RadiusY="30" />
+            </Path.Data>
+        </Path>
+        -->
+            <ToggleButton Content="ToggleButton" Width="150" Height="30" />
+            <CheckBox Content="CheckBox" />
+            <RadioButton Content="RadioButton" />
+
+            <Button Padding="10" Width="150" Height="50">
+                <Image Source="/Medias/cat.png" />
+            </Button>
+
+            <Button Width="150">
+                <CheckBox Content="Check Me" />
+            </Button>
+
+            <Border Background="Orange" Padding="5" Width="210" CornerRadius="10">
+                <Button Content="Orange Button" Width="200" Height="30" />
+            </Border>
+
+            <Border Background="Blue" Padding="5" Width="210" CornerRadius="10,0,10,0">
+                <Button Content="Blue Button" Width="200" Height="30" />
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <ScrollViewer Height="300" Width="300" 
+                          HorizontalScrollBarVisibility="Visible"
+                          VerticalScrollBarVisibility="Visible">
+                <Image Source="/Medias/cat.png" Width="400" Height="400" />
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>    
+</Window>    
+    

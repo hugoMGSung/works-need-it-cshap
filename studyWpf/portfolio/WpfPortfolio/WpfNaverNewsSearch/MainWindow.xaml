@@ -1,0 +1,48 @@
+﻿<mah:MetroWindow
+    x:Class="WpfNaverNewsSearch.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:local="clr-namespace:WpfNaverNewsSearch"
+    mc:Ignorable="d"
+    Title="Naver NewsSearch v1.0" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <TextBox x:Name="txtSearch" Margin="5" Width="500"
+                 mah:TextBoxHelper.AutoWatermark="True"
+                 mah:TextBoxHelper.Watermark="뉴스 검색할 단어 입력"
+                 mah:TextBoxHelper.UseFloatingWatermark="True"
+                 mah:TextBoxHelper.ClearTextButton="True"
+                 KeyDown="txtSearch_KeyDown"/>
+            <TextBlock Text="시작번호" VerticalAlignment="Center" />
+            <TextBox x:Name="txtStartNum" Width="100" Margin="5" Text="1"
+                     TextAlignment="Right" />
+        </StackPanel>
+
+        
+
+        <DataGrid x:Name="dgrResult" Grid.Row="2" Grid.Column="1" Margin="5"
+                  IsReadOnly="True" ItemsSource="{Binding}" Style="{StaticResource MahApps.Styles.DataGrid}"
+                  AutoGenerateColumns="False" SelectedCellsChanged="dgrResult_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Title}" Header="뉴스제목" FontWeight="Bold" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Description}" Header="뉴스내용" Width="2*" />
+                <DataGridTextColumn Binding="{Binding PubDate}" Header="뉴스게시일" Width="110" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</mah:MetroWindow>

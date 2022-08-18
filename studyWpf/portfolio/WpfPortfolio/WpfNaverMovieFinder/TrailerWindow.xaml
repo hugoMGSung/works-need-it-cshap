@@ -1,0 +1,53 @@
+﻿<mah:MetroWindow 
+    x:Class="WpfNaverMovieFinder.TrailerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+    xmlns:local="clr-namespace:WpfNaverMovieFinder"
+    mc:Ignorable="d"
+    Title="TailerWindow" Height="350" Width="800" Loaded="MetroWindow_Loaded"
+    Closing="MetroWindow_Closing">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label x:Name="lblMovieName" Grid.Row="0" Grid.Column="0" FontSize="16" Margin="5"
+               Content="예고편" Style="{StaticResource MahApps.Styles.Label}"/>
+
+        <ListView x:Name="lsvYoutubeSearch" Grid.Row="1" Grid.Column="0" Margin="5"
+                  MouseDoubleClick="lsvYoutubeSearch_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="섬네일" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Thumbnail}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="타이틀" Width="Auto"
+                                    DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Header="제작자" Width="Auto"
+                                    DisplayMemberBinding="{Binding Author}"/>
+                    <GridViewColumn Header="링크" Width="Auto"
+                                    DisplayMemberBinding="{Binding URL}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <!-- 유튜브 플레이 브라우저영역 -->
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Margin="10">
+            <cefSharp:ChromiumWebBrowser x:Name="brsYoutubeWatch" />
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

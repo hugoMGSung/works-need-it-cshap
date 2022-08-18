@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfBasicApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBasicApp"
+        mc:Ignorable="d"
+        Title="WpfBasicApp" Height="281" Width="190"
+        ResizeMode="NoResize">
+    <StackPanel>
+        <TextBlock Text="TextBlock" Width="150" Height="30" />
+        <Label Content="Label" Width="150" Height="30" />
+        <TextBox Text="TextBox" Width="150" Height="30" />
+        <ProgressBar Minimum="0" Maximum="100" Value="50" Width="150" Height="30" />
+        <Slider Width="150" Height="30" Minimum="0" Maximum="100" Value="30" />
+        <PasswordBox PasswordChar="●" Password="password" Width="150" Height="30" />
+        <ComboBox Text="Combo1" Width="150" Height="30" />
+        <Button Content="Button1" Width="150" Height="30" />
+    </StackPanel>
+</Window>
