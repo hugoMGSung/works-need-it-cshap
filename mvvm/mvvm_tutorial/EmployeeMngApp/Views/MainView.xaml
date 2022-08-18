@@ -1,0 +1,121 @@
+﻿<mah:MetroWindow 
+    x:Class="EmployeeMngApp.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:local="clr-namespace:EmployeeMngApp.Views"
+    mc:Ignorable="d"
+    Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <!-- 왼쪽 리스트영역 -->
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="직원 리스트"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontWeight="Bold" FontSize="20"
+                   Style="{StaticResource MahApps.Styles.Label}"/>
+
+            <DataGrid x:Name="Employees" Grid.Row="1" Grid.Column="0"
+                      Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectedItem="{Binding SelectedEmployee}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="아이디" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="사원명" Binding="{Binding EmpName}" />
+                    <DataGridTextColumn Header="급여" Binding="{Binding Salary}" />
+                    <DataGridTextColumn Header="부서명" Binding="{Binding DeptName}" />
+                    <DataGridTextColumn Header="주소" Binding="{Binding Destination}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button x:Name="GetEmployees" Grid.Row="2" Grid.Column="0" Content="조회"
+                    Width="120" Height="40" ToolTip="직원리스트 가져오기"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"/>
+        </Grid>
+        
+        <!-- 오른쪽 입력영역 -->
+        <Grid Grid.Row="0" Grid.Column="1" Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="아이디" VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Style="{StaticResource MahApps.Styles.Label}"/>
+            <TextBox x:Name="Id" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"
+                     mah:TextBoxHelper.Watermark="(입력불가)" IsReadOnly="True"
+                     Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="사원명" VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Style="{StaticResource MahApps.Styles.Label}"/>
+            <TextBox x:Name="EmpName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                     mah:TextBoxHelper.Watermark="사원명 입력"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="급여" VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Style="{StaticResource MahApps.Styles.Label}"/>
+            <TextBox x:Name="Salary" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
+                     mah:TextBoxHelper.Watermark="급여 입력"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="부서명" VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Style="{StaticResource MahApps.Styles.Label}"/>
+            <TextBox x:Name="DeptName" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                     mah:TextBoxHelper.Watermark="부서 입력"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="주소" VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Style="{StaticResource MahApps.Styles.Label}"/>
+            <TextBox x:Name="Destination" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"
+                     mah:TextBoxHelper.Watermark="주소 입력"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.ClearTextButton="True"
+                     Style="{StaticResource MahApps.Styles.TextBox}"/>
+
+            <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                        Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="NewEmployee" Content="신규"
+                        Width="90" Height="40" ToolTip="신규직원"
+                        Style="{StaticResource MahApps.Styles.Button}" />
+                <Button x:Name="SaveEmployee" Content="저장"
+                    Width="90" Height="40" ToolTip="직원 저장하기"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"/>
+                <Button x:Name="DelEmployee" Content="삭제"
+                        Width="90" Height="40" ToolTip="직원 삭제하기"
+                        Style="{StaticResource MahApps.Styles.Button.Dialogs.AccentHighlight}" />
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</mah:MetroWindow>
