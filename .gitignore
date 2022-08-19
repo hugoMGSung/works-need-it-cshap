@@ -348,10 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-*.csproj
-*.config
-*AssemblyInfo.cs
-*.sln
-*.vcxproj
-*.vcxproj.filters
-*.make
+# *.csproj 이걸 주석처리하다니!!
+# *.config
+# *AssemblyInfo.cs
+# *.sln  
+# *.vcxproj
+# *.vcxproj.filters
+# *.make
