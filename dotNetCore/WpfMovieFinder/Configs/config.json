@@ -1,0 +1,7 @@
+{
+  "Data_Source": "localhost",
+  "Initial_Catalog": "MovieFinder",
+  "User_ID": "sa",
+  "Password": "mssql_p@ssw0rd",
+  "apikey": "e17f08db"
+}

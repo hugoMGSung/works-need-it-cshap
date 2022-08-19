@@ -1,0 +1,26 @@
+﻿<mah:MetroWindow  
+    x:Class="WpfMovieFinder.Views.CustomPopupView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    Height="200" Width="300" 
+    Title="Message"
+    WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1.2*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="DisplayName"/>
+        <Label x:Name="ReportMessage" Margin="0 6 0 0"
+                 FontSize="18" Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2"
+                    Margin="0 16 0 0" HorizontalAlignment="Right">
+            <Button x:Name="CloseAccept" IsDefault="True" Style="{DynamicResource MahApps.Styles.Button.Dialogs.Accent}"
+                    Click="CloseAccept_Click">
+                CONFIRM
+            </Button>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>
