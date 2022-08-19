@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{77F94481-9D42-4572-9A93-B6150A320A3A}"
+	ProjectSection(SolutionItems) = preProject
+		AnimationApp\AnimationApp.csproj = AnimationApp\AnimationApp.csproj
+		ButtonTestApp\ButtonTestApp.csproj = ButtonTestApp\ButtonTestApp.csproj
+		ChartControlApp\ChartControlApp.csproj = ChartControlApp\ChartControlApp.csproj
+		CheckBoxTestApp\CheckBoxTestApp.csproj = CheckBoxTestApp\CheckBoxTestApp.csproj
+		CheckListBoxApp\CheckListBoxApp.csproj = CheckListBoxApp\CheckListBoxApp.csproj
+		ClockApp\ClockApp.csproj = ClockApp\ClockApp.csproj
+		GraphicApp\GraphicApp.csproj = GraphicApp\GraphicApp.csproj
+		ListControlTestApp\ListControlTestApp.csproj = ListControlTestApp\ListControlTestApp.csproj
+		LoginApp\LoginApp.csproj = LoginApp\LoginApp.csproj
+		MainMenuApp\MainMenuApp.csproj = MainMenuApp\MainMenuApp.csproj
+		ModalDlgApp\ModalDlgApp.csproj = ModalDlgApp\ModalDlgApp.csproj
+		OpenFileDlgApp\OpenFileDlgApp.csproj = OpenFileDlgApp\OpenFileDlgApp.csproj
+		ProgressApp\ProgressApp.csproj = ProgressApp\ProgressApp.csproj
+		RadioButtonTestApp\RadioButtonTestApp.csproj = RadioButtonTestApp\RadioButtonTestApp.csproj
+		TreeViewApp\TreeViewApp.csproj = TreeViewApp\TreeViewApp.csproj
+		ViewControlApp\ViewControlApp.csproj = ViewControlApp\ViewControlApp.csproj
+		WinFormApp\WinFormApp.csproj = WinFormApp\WinFormApp.csproj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Intermediate", "Intermediate", "{A5596FC9-984A-4FCE-89EF-7DE738198637}"
+	ProjectSection(SolutionItems) = preProject
+		BookRentalShop20\BookRentalShop20.csproj = BookRentalShop20\BookRentalShop20.csproj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{79A1D214-3D6E-4EB1-A6B5-3FDBB4496875}"
+	ProjectSection(SolutionItems) = preProject
+		ResourceImgs\frame-1.png = ResourceImgs\frame-1.png
+		ResourceImgs\frame-2.png = ResourceImgs\frame-2.png
+		ResourceImgs\frame-3.png = ResourceImgs\frame-3.png
+		ResourceImgs\frame-4.png = ResourceImgs\frame-4.png
+		ResourceImgs\frame-5.png = ResourceImgs\frame-5.png
+		ResourceImgs\frame-6.png = ResourceImgs\frame-6.png
+		ResourceImgs\frame-7.png = ResourceImgs\frame-7.png
+		ResourceImgs\frame-8.png = ResourceImgs\frame-8.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogDbTestApp", "NLogDbTestApp\NLogDbTestApp.csproj", "{E36E79F7-8E8D-4633-80E2-A159D903B2DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E36E79F7-8E8D-4633-80E2-A159D903B2DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36E79F7-8E8D-4633-80E2-A159D903B2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36E79F7-8E8D-4633-80E2-A159D903B2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36E79F7-8E8D-4633-80E2-A159D903B2DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E36E79F7-8E8D-4633-80E2-A159D903B2DA} = {A5596FC9-984A-4FCE-89EF-7DE738198637}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C67ED8EC-3586-45C1-AA8B-2A67F2C31522}
+	EndGlobalSection
+EndGlobal

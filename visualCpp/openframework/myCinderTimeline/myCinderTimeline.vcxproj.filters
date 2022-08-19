@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\CinderMath.cpp">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\Timeline.cpp">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\TimelineItem.cpp">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\Tween.cpp">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline">
+			<UniqueIdentifier>{37F24A7A-A562-E5E6-89F1-3A0E}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\src">
+			<UniqueIdentifier>{9DC7240B-6F10-E6CD-4BB2-1C70}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\libs">
+			<UniqueIdentifier>{E973D1FF-2F47-72A4-FE46-B10F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\libs\cinder">
+			<UniqueIdentifier>{A2F4A448-75CF-694B-20B7-E426}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\libs\cinder\include">
+			<UniqueIdentifier>{7062E86C-1B30-C3A2-0A1F-7CBB}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\libs\cinder\include\cinder">
+			<UniqueIdentifier>{1761F893-74FF-1173-D49A-C2D9}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\libs\cinder\src">
+			<UniqueIdentifier>{048A7EB0-052C-9C9A-FAA2-6DD5}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxCinderTimeline\libs\cinder\src\cinder">
+			<UniqueIdentifier>{0FE8497F-A1C0-BCED-DE70-E020}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\src\ofxCinderTimeline.h">
+			<Filter>addons\ofxCinderTimeline\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Cinder.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\CinderMath.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Easing.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Function.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Timeline.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\TimelineItem.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Tween.h">
+			<Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfKakaoNetApp", "WpfKakaoNetApp\WpfKakaoNetApp.csproj", "{0DDF3659-F676-465F-93D5-B2B12EF55DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapWeb", "MapWeb\MapWeb.csproj", "{A1D05E29-B0C6-4AFA-9D83-69983545A211}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DDF3659-F676-465F-93D5-B2B12EF55DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDF3659-F676-465F-93D5-B2B12EF55DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDF3659-F676-465F-93D5-B2B12EF55DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDF3659-F676-465F-93D5-B2B12EF55DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D05E29-B0C6-4AFA-9D83-69983545A211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D05E29-B0C6-4AFA-9D83-69983545A211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D05E29-B0C6-4AFA-9D83-69983545A211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D05E29-B0C6-4AFA-9D83-69983545A211}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAC101B4-DCCB-45B8-8BFD-A8CD5F8CFCD8}
+	EndGlobalSection
+EndGlobal

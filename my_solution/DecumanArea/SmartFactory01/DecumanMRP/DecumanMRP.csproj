@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6891F03-12BA-458A-9033-25DED50D5034}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DecumanMRP</RootNamespace>
+    <AssemblyName>DecumanMRP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>industry-40.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommandLineParser.2.8.0\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Cyotek.Windows.Forms.ColorPicker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=58daa28b0b2de221, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cyotek.Windows.Forms.ColorPicker.1.7.2\lib\net35\Cyotek.Windows.Forms.ColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyScintilla, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EasyScintilla.1.0.5\lib\net40\EasyScintilla.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Docking, Version=5.550.2106.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Docking.5.550.2106.1\lib\net48\Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Navigator, Version=5.550.2106.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Navigator.5.550.2106.1\lib\net48\Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Ribbon, Version=5.550.2106.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Ribbon.5.550.2106.1\lib\net48\Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit, Version=5.550.2106.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.5.550.2106.1\lib\net48\Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Base, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Base.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Common, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Common.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Core, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Core.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Dialogs, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Dialogs.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Dialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Drawing.Suite, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Drawing.Suite.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Drawing.Suite.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Global.Utilities, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Global.Utililties.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Global.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Language.Model, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Language.Model.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Language.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Palette.Controller, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Palette.Controller.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Palette.Controller.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Palette.Controls, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Palette.Controls.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Palette.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Settings, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Settings.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Standard.Controls, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Standard.Controls.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Standard.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit.Suite.Extended.Utilities, Version=5.550.2106.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Toolkit.Suite.Extended.Utilities.5.550.2106\lib\net45\Krypton.Toolkit.Suite.Extended.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Workspace, Version=5.550.2106.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Krypton.Workspace.5.550.2106.1\lib\net48\Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAPICodePack.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ExtendedLinguisticServices, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAPICodePack.1.1.1\lib\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Sensors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAPICodePack.1.1.1\lib\Microsoft.WindowsAPICodePack.Sensors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAPICodePack.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAPICodePack.1.1.1\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StaticInfo\TypeOfMessage.cs" />
+    <Compile Include="UserControls\CntDocumentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CntDocumentView.Designer.cs">
+      <DependentUpon>CntDocumentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CntInputView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CntInputView.Designer.cs">
+      <DependentUpon>CntInputView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CntProjectView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CntProjectView.Designer.cs">
+      <DependentUpon>CntProjectView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CntPropertyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CntPropertyView.Designer.cs">
+      <DependentUpon>CntPropertyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadingScreen.cs" />
+    <Compile Include="Views\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\CntDocumentView.resx">
+      <DependentUpon>CntDocumentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CntInputView.resx">
+      <DependentUpon>CntInputView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CntProjectView.resx">
+      <DependentUpon>CntProjectView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CntPropertyView.resx">
+      <DependentUpon>CntPropertyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="industry-40.ico" />
+    <Content Include="Windows Logo.png" />
+    <None Include="Resources\Loading05.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserInterfaces\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

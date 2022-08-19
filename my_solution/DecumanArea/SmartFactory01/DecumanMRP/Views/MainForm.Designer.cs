@@ -129,7 +129,8 @@ namespace DecumanMRP
             this.kryptonRibbon1.RibbonTabs.AddRange(new Krypton.Ribbon.KryptonRibbonTab[] {
             this.KrtHome,
             this.KrtAppearance});
-            this.kryptonRibbon1.SelectedTab = this.KrtAppearance;
+            this.kryptonRibbon1.SelectedContext = null;
+            this.kryptonRibbon1.SelectedTab = this.KrtHome;
             this.kryptonRibbon1.Size = new System.Drawing.Size(1062, 135);
             this.kryptonRibbon1.TabIndex = 0;
             // 
