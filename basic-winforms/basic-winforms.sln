@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-checkedlistbox-app"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-combobox-app", "control-combobox-app\control-combobox-app.csproj", "{B961E7BD-039E-4D02-8262-C58A5F32D360}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-label-app", "control-label-app\control-label-app.csproj", "{3BAF0A98-3219-4B22-9456-515DCDEF0B16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-textbox-app", "control-textbox-app\control-textbox-app.csproj", "{FD4609C1-5AA7-41EA-AB03-CC367C9943F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAF0A98-3219-4B22-9456-515DCDEF0B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAF0A98-3219-4B22-9456-515DCDEF0B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAF0A98-3219-4B22-9456-515DCDEF0B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAF0A98-3219-4B22-9456-515DCDEF0B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD4609C1-5AA7-41EA-AB03-CC367C9943F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4609C1-5AA7-41EA-AB03-CC367C9943F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4609C1-5AA7-41EA-AB03-CC367C9943F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4609C1-5AA7-41EA-AB03-CC367C9943F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +65,8 @@ Global
 		{0A490E8E-F950-4B45-BB70-27E7C2EC889A} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
 		{EA32E1E7-3DD0-49A3-B277-47D98839BB53} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
 		{B961E7BD-039E-4D02-8262-C58A5F32D360} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
+		{3BAF0A98-3219-4B22-9456-515DCDEF0B16} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
+		{FD4609C1-5AA7-41EA-AB03-CC367C9943F1} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {859E5E5A-9A39-44B2-8C99-4614EED5A731}
