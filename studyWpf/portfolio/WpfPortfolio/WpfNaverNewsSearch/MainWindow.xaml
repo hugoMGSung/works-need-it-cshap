@@ -33,7 +33,7 @@
                      TextAlignment="Right" />
         </StackPanel>
 
-        
+
 
         <DataGrid x:Name="dgrResult" Grid.Row="2" Grid.Column="1" Margin="5"
                   IsReadOnly="True" ItemsSource="{Binding}" Style="{StaticResource MahApps.Styles.DataGrid}"

@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldApp", "HelloWorldApp\HelloWorldApp.csproj", "{5D7637F5-EFAE-437C-A3EA-46019076747A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AB.처음만나는씨샵", "AB.처음만나는씨샵", "{DAAA7881-7E01-4A61-A2EC-535D9FEDE270}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AC.데이터보관1", "AC.데이터보관1", "{9BC45988-A79A-4CCD-A8EE-A8DE1B13AD4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5D7637F5-EFAE-437C-A3EA-46019076747A} = {DAAA7881-7E01-4A61-A2EC-535D9FEDE270}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A53701CD-F57B-480D-95E1-FA423BE96B66}

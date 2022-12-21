@@ -5,6 +5,18 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "first-app", "first-app\first-app.csproj", "{572E3E39-A504-43ED-ADDA-62AD24900275}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetFramework", "NetFramework", "{A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netcore-app", "netcore-app\netcore-app.csproj", "{2870E170-B49E-4082-A392-7CA700E6CF35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetCore", "NetCore", "{7F80C102-31AE-4A6A-9A3F-2B1FB605B92E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-checkbox-app", "control-checkbox-app\control-checkbox-app.csproj", "{0A490E8E-F950-4B45-BB70-27E7C2EC889A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-checkedlistbox-app", "control-checkedlistbox-app\control-checkedlistbox-app.csproj", "{EA32E1E7-3DD0-49A3-B277-47D98839BB53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "control-combobox-app", "control-combobox-app\control-combobox-app.csproj", "{B961E7BD-039E-4D02-8262-C58A5F32D360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +27,32 @@ Global
 		{572E3E39-A504-43ED-ADDA-62AD24900275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{572E3E39-A504-43ED-ADDA-62AD24900275}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{572E3E39-A504-43ED-ADDA-62AD24900275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2870E170-B49E-4082-A392-7CA700E6CF35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2870E170-B49E-4082-A392-7CA700E6CF35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2870E170-B49E-4082-A392-7CA700E6CF35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2870E170-B49E-4082-A392-7CA700E6CF35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A490E8E-F950-4B45-BB70-27E7C2EC889A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A490E8E-F950-4B45-BB70-27E7C2EC889A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A490E8E-F950-4B45-BB70-27E7C2EC889A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A490E8E-F950-4B45-BB70-27E7C2EC889A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA32E1E7-3DD0-49A3-B277-47D98839BB53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA32E1E7-3DD0-49A3-B277-47D98839BB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA32E1E7-3DD0-49A3-B277-47D98839BB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA32E1E7-3DD0-49A3-B277-47D98839BB53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B961E7BD-039E-4D02-8262-C58A5F32D360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{572E3E39-A504-43ED-ADDA-62AD24900275} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
+		{2870E170-B49E-4082-A392-7CA700E6CF35} = {7F80C102-31AE-4A6A-9A3F-2B1FB605B92E}
+		{0A490E8E-F950-4B45-BB70-27E7C2EC889A} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
+		{EA32E1E7-3DD0-49A3-B277-47D98839BB53} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
+		{B961E7BD-039E-4D02-8262-C58A5F32D360} = {A449A26A-28FD-4C7D-8AA0-4BD69B1E29B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {859E5E5A-9A39-44B2-8C99-4614EED5A731}

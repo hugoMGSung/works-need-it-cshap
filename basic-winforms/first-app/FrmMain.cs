@@ -16,5 +16,12 @@ namespace first_app
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Aquamarine;
+            button1.ForeColor = Color.Crimson;
+            button1.Text = "Processing...";
+        }
     }
 }

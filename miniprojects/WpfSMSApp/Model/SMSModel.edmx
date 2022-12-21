@@ -1,0 +1,1384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Antenna">
+          <Key>
+            <PropertyRef Name="AntennaID" />
+          </Key>
+          <Property Name="AntennaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TxPower" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RxPower" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AntennaNumber" Type="int" Nullable="false" />
+          <Property Name="ReaderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Barcode">
+          <Key>
+            <PropertyRef Name="BarcodeID" />
+          </Key>
+          <Property Name="BarcodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BarcodeNumber" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookOut">
+          <Key>
+            <PropertyRef Name="BookOutID" />
+          </Key>
+          <Property Name="BookOutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reason" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Project" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookOutItem">
+          <Key>
+            <PropertyRef Name="BookOutItemID" />
+          </Key>
+          <Property Name="BookOutItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="BookOutID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BrandDescription" Type="varchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ItemStatus" Type="bit" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="BarcodeID" Type="int" Nullable="false" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reader">
+          <Key>
+            <PropertyRef Name="ReaderID" />
+          </Key>
+          <Property Name="ReaderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IPaddress" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NumAntennas" Type="int" Nullable="false" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="StockID" />
+          </Key>
+          <Property Name="StockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StoreLocation" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ItemStatus" Type="bit" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="BarcodeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EPC" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserIdentityNumber" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserSurname" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserAdmin" Type="bit" Nullable="false" />
+          <Property Name="UserActivated" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AntennaReader">
+          <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
+          <End Role="Antenna" Type="Self.Antenna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reader">
+              <PropertyRef Name="ReaderID" />
+            </Principal>
+            <Dependent Role="Antenna">
+              <PropertyRef Name="ReaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOut_Item">
+          <End Role="BookOut" Type="Self.BookOut" Multiplicity="1" />
+          <End Role="BookOutItem" Type="Self.BookOutItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookOut">
+              <PropertyRef Name="BookOutID" />
+            </Principal>
+            <Dependent Role="BookOutItem">
+              <PropertyRef Name="BookOutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOutItem_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="BookOutItem" Type="Self.BookOutItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="BookOutItem">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOutUSer">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BookOut" Type="Self.BookOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BookOut">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemBarcode">
+          <End Role="Barcode" Type="Self.Barcode" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Barcode">
+              <PropertyRef Name="BarcodeID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BarcodeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemBrand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTag">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReaderStore">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Reader" Type="Self.Reader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="Reader">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockItem">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockStore">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteAntenna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AntennaID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteBookOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BookOutID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteBookOutItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BookOutItemID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BrandID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItemID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteReader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ReaderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StockID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StoreID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Deletesysdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagram_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TagID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="InsertAntenna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AntennaNumber" Type="int" Mode="In" />
+          <Parameter Name="ReaderID" Type="int" Mode="In" />
+          <Parameter Name="RxPower" Type="decimal" Mode="In" />
+          <Parameter Name="TxPower" Type="decimal" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeNumber" Type="varchar" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertBookOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+          <Parameter Name="Reason" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertBookOutItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BookOutID" Type="int" Mode="In" />
+          <Parameter Name="ItemID" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BrandDescription" Type="varchar" Mode="In" />
+          <Parameter Name="BrandName" Type="varchar" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryDescription" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryName" Type="varchar" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeID" Type="int" Mode="In" />
+          <Parameter Name="BrandID" Type="int" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="ItemDescription" Type="varchar" Mode="In" />
+          <Parameter Name="ItemName" Type="varchar" Mode="In" />
+          <Parameter Name="ItemStatus" Type="bit" Mode="In" />
+          <Parameter Name="TagID" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertReader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IPaddress" Type="varchar" Mode="In" />
+          <Parameter Name="NumAntennas" Type="int" Mode="In" />
+          <Parameter Name="StoreID" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItemID" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="StoreID" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeID" Type="int" Mode="In" />
+          <Parameter Name="ItemStatus" Type="bit" Mode="In" />
+          <Parameter Name="StoreLocation" Type="varchar" Mode="In" />
+          <Parameter Name="StoreName" Type="varchar" Mode="In" />
+          <Parameter Name="TagID" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Insertsysdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="principal_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EPC" Type="varchar" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserActivated" Type="bit" Mode="In" />
+          <Parameter Name="UserAdmin" Type="bit" Mode="In" />
+          <Parameter Name="UserEmail" Type="varchar" Mode="In" />
+          <Parameter Name="UserIdentityNumber" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+          <Parameter Name="UserSurname" Type="varchar" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateAntenna" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AntennaNumber" Type="int" Mode="In" />
+          <Parameter Name="ReaderID" Type="int" Mode="In" />
+          <Parameter Name="RxPower" Type="decimal" Mode="In" />
+          <Parameter Name="TxPower" Type="decimal" Mode="In" />
+          <Parameter Name="AntennaID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateBarcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeNumber" Type="varchar" Mode="In" />
+          <Parameter Name="BarcodeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateBookOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Project" Type="varchar" Mode="In" />
+          <Parameter Name="Reason" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="BookOutID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateBookOutItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BookOutID" Type="int" Mode="In" />
+          <Parameter Name="ItemID" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="BookOutItemID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BrandDescription" Type="varchar" Mode="In" />
+          <Parameter Name="BrandName" Type="varchar" Mode="In" />
+          <Parameter Name="BrandID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryDescription" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryName" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeID" Type="int" Mode="In" />
+          <Parameter Name="BrandID" Type="int" Mode="In" />
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+          <Parameter Name="ItemDescription" Type="varchar" Mode="In" />
+          <Parameter Name="ItemName" Type="varchar" Mode="In" />
+          <Parameter Name="ItemStatus" Type="bit" Mode="In" />
+          <Parameter Name="TagID" Type="int" Mode="In" />
+          <Parameter Name="ItemID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateReader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IPaddress" Type="varchar" Mode="In" />
+          <Parameter Name="NumAntennas" Type="int" Mode="In" />
+          <Parameter Name="StoreID" Type="int" Mode="In" />
+          <Parameter Name="ReaderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItemID" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="StoreID" Type="int" Mode="In" />
+          <Parameter Name="StockID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BarcodeID" Type="int" Mode="In" />
+          <Parameter Name="ItemStatus" Type="bit" Mode="In" />
+          <Parameter Name="StoreLocation" Type="varchar" Mode="In" />
+          <Parameter Name="StoreName" Type="varchar" Mode="In" />
+          <Parameter Name="TagID" Type="int" Mode="In" />
+          <Parameter Name="StoreID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Updatesysdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="principal_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="diagram_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EPC" Type="varchar" Mode="In" />
+          <Parameter Name="TagID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserActivated" Type="bit" Mode="In" />
+          <Parameter Name="UserAdmin" Type="bit" Mode="In" />
+          <Parameter Name="UserEmail" Type="varchar" Mode="In" />
+          <Parameter Name="UserIdentityNumber" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="UserPassword" Type="varchar" Mode="In" />
+          <Parameter Name="UserSurname" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SMSModelStoreContainer">
+          <EntitySet Name="Antenna" EntityType="Self.Antenna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Barcode" EntityType="Self.Barcode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookOut" EntityType="Self.BookOut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookOutItem" EntityType="Self.BookOutItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reader" EntityType="Self.Reader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AntennaReader" Association="Self.FK_AntennaReader">
+            <End Role="Reader" EntitySet="Reader" />
+            <End Role="Antenna" EntitySet="Antenna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOut_Item" Association="Self.FK_BookOut_Item">
+            <End Role="BookOut" EntitySet="BookOut" />
+            <End Role="BookOutItem" EntitySet="BookOutItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOutItem_Item" Association="Self.FK_BookOutItem_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="BookOutItem" EntitySet="BookOutItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOutUSer" Association="Self.FK_BookOutUSer">
+            <End Role="User" EntitySet="User" />
+            <End Role="BookOut" EntitySet="BookOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemBarcode" Association="Self.FK_ItemBarcode">
+            <End Role="Barcode" EntitySet="Barcode" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemBrand" Association="Self.FK_ItemBrand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory" Association="Self.FK_ItemCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTag" Association="Self.FK_ItemTag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReaderStore" Association="Self.FK_ReaderStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Reader" EntitySet="Reader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockItem" Association="Self.FK_StockItem">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockStore" Association="Self.FK_StockStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Antenna">
+          <Key>
+            <PropertyRef Name="AntennaID" />
+          </Key>
+          <Property Name="AntennaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TxPower" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="RxPower" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AntennaNumber" Type="Int32" Nullable="false" />
+          <Property Name="ReaderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reader" Relationship="Self.FK_AntennaReader" FromRole="Antenna" ToRole="Reader" />
+        </EntityType>
+        <EntityType Name="Barcode">
+          <Key>
+            <PropertyRef Name="BarcodeID" />
+          </Key>
+          <Property Name="BarcodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BarcodeNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemBarcode" FromRole="Barcode" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="BookOut">
+          <Key>
+            <PropertyRef Name="BookOutID" />
+          </Key>
+          <Property Name="BookOutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Project" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookOutItem" Relationship="Self.FK_BookOut_Item" FromRole="BookOut" ToRole="BookOutItem" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BookOutUSer" FromRole="BookOut" ToRole="User" />
+        </EntityType>
+        <EntityType Name="BookOutItem">
+          <Key>
+            <PropertyRef Name="BookOutItemID" />
+          </Key>
+          <Property Name="BookOutItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="BookOutID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookOut" Relationship="Self.FK_BookOut_Item" FromRole="BookOutItem" ToRole="BookOut" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_BookOutItem_Item" FromRole="BookOutItem" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BrandDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemBrand" FromRole="Brand" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemCategory" FromRole="Category" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStatus" Type="Boolean" Nullable="false" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="BarcodeID" Type="Int32" Nullable="false" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Barcode" Relationship="Self.FK_ItemBarcode" FromRole="Item" ToRole="Barcode" />
+          <NavigationProperty Name="BookOutItem" Relationship="Self.FK_BookOutItem_Item" FromRole="Item" ToRole="BookOutItem" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_ItemBrand" FromRole="Item" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_ItemCategory" FromRole="Item" ToRole="Category" />
+          <NavigationProperty Name="Tag" Relationship="Self.FK_ItemTag" FromRole="Item" ToRole="Tag" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_StockItem" FromRole="Item" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="Reader">
+          <Key>
+            <PropertyRef Name="ReaderID" />
+          </Key>
+          <Property Name="ReaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IPaddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumAntennas" Type="Int32" Nullable="false" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Antenna" Relationship="Self.FK_AntennaReader" FromRole="Reader" ToRole="Antenna" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_ReaderStore" FromRole="Reader" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="StockID" />
+          </Key>
+          <Property Name="StockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="StoreID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_StockItem" FromRole="Stock" ToRole="Item" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_StockStore" FromRole="Stock" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreID" />
+          </Key>
+          <Property Name="StoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StoreLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStatus" Type="Boolean" Nullable="false" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="BarcodeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reader" Relationship="Self.FK_ReaderStore" FromRole="Store" ToRole="Reader" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_StockStore" FromRole="Store" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EPC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemTag" FromRole="Tag" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserIdentityNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserSurname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="UserActivated" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BookOut" Relationship="Self.FK_BookOutUSer" FromRole="User" ToRole="BookOut" />
+        </EntityType>
+        <Association Name="FK_AntennaReader">
+          <End Role="Reader" Type="Self.Reader" Multiplicity="1" />
+          <End Role="Antenna" Type="Self.Antenna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reader">
+              <PropertyRef Name="ReaderID" />
+            </Principal>
+            <Dependent Role="Antenna">
+              <PropertyRef Name="ReaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemBarcode">
+          <End Role="Barcode" Type="Self.Barcode" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Barcode">
+              <PropertyRef Name="BarcodeID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BarcodeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOut_Item">
+          <End Role="BookOut" Type="Self.BookOut" Multiplicity="1" />
+          <End Role="BookOutItem" Type="Self.BookOutItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookOut">
+              <PropertyRef Name="BookOutID" />
+            </Principal>
+            <Dependent Role="BookOutItem">
+              <PropertyRef Name="BookOutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOutUSer">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BookOut" Type="Self.BookOut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BookOut">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookOutItem_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="BookOutItem" Type="Self.BookOutItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="BookOutItem">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemBrand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTag">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockItem">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReaderStore">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Reader" Type="Self.Reader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="Reader">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockStore">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreID" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="StoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Antenna" EntityType="Self.Antenna" />
+          <EntitySet Name="Barcode" EntityType="Self.Barcode" />
+          <EntitySet Name="BookOut" EntityType="Self.BookOut" />
+          <EntitySet Name="BookOutItem" EntityType="Self.BookOutItem" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="Reader" EntityType="Self.Reader" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" />
+          <EntitySet Name="Store" EntityType="Self.Store" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_AntennaReader" Association="Self.FK_AntennaReader">
+            <End Role="Reader" EntitySet="Reader" />
+            <End Role="Antenna" EntitySet="Antenna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemBarcode" Association="Self.FK_ItemBarcode">
+            <End Role="Barcode" EntitySet="Barcode" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOut_Item" Association="Self.FK_BookOut_Item">
+            <End Role="BookOut" EntitySet="BookOut" />
+            <End Role="BookOutItem" EntitySet="BookOutItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOutUSer" Association="Self.FK_BookOutUSer">
+            <End Role="User" EntitySet="User" />
+            <End Role="BookOut" EntitySet="BookOut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookOutItem_Item" Association="Self.FK_BookOutItem_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="BookOutItem" EntitySet="BookOutItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemBrand" Association="Self.FK_ItemBrand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory" Association="Self.FK_ItemCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTag" Association="Self.FK_ItemTag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockItem" Association="Self.FK_StockItem">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReaderStore" Association="Self.FK_ReaderStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Reader" EntitySet="Reader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockStore" Association="Self.FK_StockStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteAntenna">
+            <Parameter Name="AntennaID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteBarcode">
+            <Parameter Name="BarcodeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteBookOut">
+            <Parameter Name="BookOutID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteBookOutItem">
+            <Parameter Name="BookOutItemID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteBrand">
+            <Parameter Name="BrandID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteCategory">
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteItem">
+            <Parameter Name="ItemID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteReader">
+            <Parameter Name="ReaderID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteStock">
+            <Parameter Name="StockID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteStore">
+            <Parameter Name="StoreID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Deletesysdiagrams">
+            <Parameter Name="diagram_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteTag">
+            <Parameter Name="TagID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteUser">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertAntenna">
+            <Parameter Name="AntennaNumber" Mode="In" Type="Int32" />
+            <Parameter Name="ReaderID" Mode="In" Type="Int32" />
+            <Parameter Name="RxPower" Mode="In" Type="Decimal" />
+            <Parameter Name="TxPower" Mode="In" Type="Decimal" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertBarcode">
+            <Parameter Name="BarcodeNumber" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertBookOut">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertBookOutItem">
+            <Parameter Name="BookOutID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemID" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertBrand">
+            <Parameter Name="BrandDescription" Mode="In" Type="String" />
+            <Parameter Name="BrandName" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCategory">
+            <Parameter Name="CategoryDescription" Mode="In" Type="String" />
+            <Parameter Name="CategoryName" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertItem">
+            <Parameter Name="BarcodeID" Mode="In" Type="Int32" />
+            <Parameter Name="BrandID" Mode="In" Type="Int32" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemDescription" Mode="In" Type="String" />
+            <Parameter Name="ItemName" Mode="In" Type="String" />
+            <Parameter Name="ItemStatus" Mode="In" Type="Boolean" />
+            <Parameter Name="TagID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertReader">
+            <Parameter Name="IPaddress" Mode="In" Type="String" />
+            <Parameter Name="NumAntennas" Mode="In" Type="Int32" />
+            <Parameter Name="StoreID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertStock">
+            <Parameter Name="ItemID" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="StoreID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertStore">
+            <Parameter Name="BarcodeID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemStatus" Mode="In" Type="Boolean" />
+            <Parameter Name="StoreLocation" Mode="In" Type="String" />
+            <Parameter Name="StoreName" Mode="In" Type="String" />
+            <Parameter Name="TagID" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insertsysdiagrams">
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="principal_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertTag">
+            <Parameter Name="EPC" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertUser">
+            <Parameter Name="UserActivated" Mode="In" Type="Boolean" />
+            <Parameter Name="UserAdmin" Mode="In" Type="Boolean" />
+            <Parameter Name="UserEmail" Mode="In" Type="String" />
+            <Parameter Name="UserIdentityNumber" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserPassword" Mode="In" Type="String" />
+            <Parameter Name="UserSurname" Mode="In" Type="String" />
+            <Parameter Name="ID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SMSModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SMSModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="UpdateAntenna">
+            <Parameter Name="AntennaNumber" Mode="In" Type="Int32" />
+            <Parameter Name="ReaderID" Mode="In" Type="Int32" />
+            <Parameter Name="RxPower" Mode="In" Type="Decimal" />
+            <Parameter Name="TxPower" Mode="In" Type="Decimal" />
+            <Parameter Name="AntennaID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateBarcode">
+            <Parameter Name="BarcodeNumber" Mode="In" Type="String" />
+            <Parameter Name="BarcodeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateBookOut">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Project" Mode="In" Type="String" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="BookOutID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateBookOutItem">
+            <Parameter Name="BookOutID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemID" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="BookOutItemID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateBrand">
+            <Parameter Name="BrandDescription" Mode="In" Type="String" />
+            <Parameter Name="BrandName" Mode="In" Type="String" />
+            <Parameter Name="BrandID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateCategory">
+            <Parameter Name="CategoryDescription" Mode="In" Type="String" />
+            <Parameter Name="CategoryName" Mode="In" Type="String" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateItem">
+            <Parameter Name="BarcodeID" Mode="In" Type="Int32" />
+            <Parameter Name="BrandID" Mode="In" Type="Int32" />
+            <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemDescription" Mode="In" Type="String" />
+            <Parameter Name="ItemName" Mode="In" Type="String" />
+            <Parameter Name="ItemStatus" Mode="In" Type="Boolean" />
+            <Parameter Name="TagID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateReader">
+            <Parameter Name="IPaddress" Mode="In" Type="String" />
+            <Parameter Name="NumAntennas" Mode="In" Type="Int32" />
+            <Parameter Name="StoreID" Mode="In" Type="Int32" />
+            <Parameter Name="ReaderID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateStock">
+            <Parameter Name="ItemID" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="StoreID" Mode="In" Type="Int32" />
+            <Parameter Name="StockID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateStore">
+            <Parameter Name="BarcodeID" Mode="In" Type="Int32" />
+            <Parameter Name="ItemStatus" Mode="In" Type="Boolean" />
+            <Parameter Name="StoreLocation" Mode="In" Type="String" />
+            <Parameter Name="StoreName" Mode="In" Type="String" />
+            <Parameter Name="TagID" Mode="In" Type="Int32" />
+            <Parameter Name="StoreID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Updatesysdiagrams">
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="principal_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="diagram_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateTag">
+            <Parameter Name="EPC" Mode="In" Type="String" />
+            <Parameter Name="TagID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateUser">
+            <Parameter Name="UserActivated" Mode="In" Type="Boolean" />
+            <Parameter Name="UserAdmin" Mode="In" Type="Boolean" />
+            <Parameter Name="UserEmail" Mode="In" Type="String" />
+            <Parameter Name="UserIdentityNumber" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserPassword" Mode="In" Type="String" />
+            <Parameter Name="UserSurname" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMSModelStoreContainer" CdmEntityContainer="SMSEntities">
+          <EntitySetMapping Name="Antenna">
+            <EntityTypeMapping TypeName="SMSModel.Antenna">
+              <MappingFragment StoreEntitySet="Antenna">
+                <ScalarProperty Name="AntennaID" ColumnName="AntennaID" />
+                <ScalarProperty Name="TxPower" ColumnName="TxPower" />
+                <ScalarProperty Name="RxPower" ColumnName="RxPower" />
+                <ScalarProperty Name="AntennaNumber" ColumnName="AntennaNumber" />
+                <ScalarProperty Name="ReaderID" ColumnName="ReaderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Barcode">
+            <EntityTypeMapping TypeName="SMSModel.Barcode">
+              <MappingFragment StoreEntitySet="Barcode">
+                <ScalarProperty Name="BarcodeID" ColumnName="BarcodeID" />
+                <ScalarProperty Name="BarcodeNumber" ColumnName="BarcodeNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookOut">
+            <EntityTypeMapping TypeName="SMSModel.BookOut">
+              <MappingFragment StoreEntitySet="BookOut">
+                <ScalarProperty Name="BookOutID" ColumnName="BookOutID" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookOutItem">
+            <EntityTypeMapping TypeName="SMSModel.BookOutItem">
+              <MappingFragment StoreEntitySet="BookOutItem">
+                <ScalarProperty Name="BookOutItemID" ColumnName="BookOutItemID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="BookOutID" ColumnName="BookOutID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brand">
+            <EntityTypeMapping TypeName="SMSModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="BrandDescription" ColumnName="BrandDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="SMSModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="SMSModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="BarcodeID" ColumnName="BarcodeID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reader">
+            <EntityTypeMapping TypeName="SMSModel.Reader">
+              <MappingFragment StoreEntitySet="Reader">
+                <ScalarProperty Name="ReaderID" ColumnName="ReaderID" />
+                <ScalarProperty Name="IPaddress" ColumnName="IPaddress" />
+                <ScalarProperty Name="NumAntennas" ColumnName="NumAntennas" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock">
+            <EntityTypeMapping TypeName="SMSModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Store">
+            <EntityTypeMapping TypeName="SMSModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="StoreLocation" ColumnName="StoreLocation" />
+                <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="BarcodeID" ColumnName="BarcodeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SMSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="SMSModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="EPC" ColumnName="EPC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="SMSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserIdentityNumber" ColumnName="UserIdentityNumber" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserAdmin" ColumnName="UserAdmin" />
+                <ScalarProperty Name="UserActivated" ColumnName="UserActivated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteAntenna" FunctionName="SMSModel.Store.DeleteAntenna" />
+          <FunctionImportMapping FunctionImportName="DeleteBarcode" FunctionName="SMSModel.Store.DeleteBarcode" />
+          <FunctionImportMapping FunctionImportName="DeleteBookOut" FunctionName="SMSModel.Store.DeleteBookOut" />
+          <FunctionImportMapping FunctionImportName="DeleteBookOutItem" FunctionName="SMSModel.Store.DeleteBookOutItem" />
+          <FunctionImportMapping FunctionImportName="DeleteBrand" FunctionName="SMSModel.Store.DeleteBrand" />
+          <FunctionImportMapping FunctionImportName="DeleteCategory" FunctionName="SMSModel.Store.DeleteCategory" />
+          <FunctionImportMapping FunctionImportName="DeleteItem" FunctionName="SMSModel.Store.DeleteItem" />
+          <FunctionImportMapping FunctionImportName="DeleteReader" FunctionName="SMSModel.Store.DeleteReader" />
+          <FunctionImportMapping FunctionImportName="DeleteStock" FunctionName="SMSModel.Store.DeleteStock" />
+          <FunctionImportMapping FunctionImportName="DeleteStore" FunctionName="SMSModel.Store.DeleteStore" />
+          <FunctionImportMapping FunctionImportName="Deletesysdiagrams" FunctionName="SMSModel.Store.Deletesysdiagrams" />
+          <FunctionImportMapping FunctionImportName="DeleteTag" FunctionName="SMSModel.Store.DeleteTag" />
+          <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="SMSModel.Store.DeleteUser" />
+          <FunctionImportMapping FunctionImportName="InsertAntenna" FunctionName="SMSModel.Store.InsertAntenna" />
+          <FunctionImportMapping FunctionImportName="InsertBarcode" FunctionName="SMSModel.Store.InsertBarcode" />
+          <FunctionImportMapping FunctionImportName="InsertBookOut" FunctionName="SMSModel.Store.InsertBookOut" />
+          <FunctionImportMapping FunctionImportName="InsertBookOutItem" FunctionName="SMSModel.Store.InsertBookOutItem" />
+          <FunctionImportMapping FunctionImportName="InsertBrand" FunctionName="SMSModel.Store.InsertBrand" />
+          <FunctionImportMapping FunctionImportName="InsertCategory" FunctionName="SMSModel.Store.InsertCategory" />
+          <FunctionImportMapping FunctionImportName="InsertItem" FunctionName="SMSModel.Store.InsertItem" />
+          <FunctionImportMapping FunctionImportName="InsertReader" FunctionName="SMSModel.Store.InsertReader" />
+          <FunctionImportMapping FunctionImportName="InsertStock" FunctionName="SMSModel.Store.InsertStock" />
+          <FunctionImportMapping FunctionImportName="InsertStore" FunctionName="SMSModel.Store.InsertStore" />
+          <FunctionImportMapping FunctionImportName="Insertsysdiagrams" FunctionName="SMSModel.Store.Insertsysdiagrams" />
+          <FunctionImportMapping FunctionImportName="InsertTag" FunctionName="SMSModel.Store.InsertTag" />
+          <FunctionImportMapping FunctionImportName="InsertUser" FunctionName="SMSModel.Store.InsertUser" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SMSModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SMSModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SMSModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SMSModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SMSModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="SMSModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SMSModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SMSModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SMSModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateAntenna" FunctionName="SMSModel.Store.UpdateAntenna" />
+          <FunctionImportMapping FunctionImportName="UpdateBarcode" FunctionName="SMSModel.Store.UpdateBarcode" />
+          <FunctionImportMapping FunctionImportName="UpdateBookOut" FunctionName="SMSModel.Store.UpdateBookOut" />
+          <FunctionImportMapping FunctionImportName="UpdateBookOutItem" FunctionName="SMSModel.Store.UpdateBookOutItem" />
+          <FunctionImportMapping FunctionImportName="UpdateBrand" FunctionName="SMSModel.Store.UpdateBrand" />
+          <FunctionImportMapping FunctionImportName="UpdateCategory" FunctionName="SMSModel.Store.UpdateCategory" />
+          <FunctionImportMapping FunctionImportName="UpdateItem" FunctionName="SMSModel.Store.UpdateItem" />
+          <FunctionImportMapping FunctionImportName="UpdateReader" FunctionName="SMSModel.Store.UpdateReader" />
+          <FunctionImportMapping FunctionImportName="UpdateStock" FunctionName="SMSModel.Store.UpdateStock" />
+          <FunctionImportMapping FunctionImportName="UpdateStore" FunctionName="SMSModel.Store.UpdateStore" />
+          <FunctionImportMapping FunctionImportName="Updatesysdiagrams" FunctionName="SMSModel.Store.Updatesysdiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateTag" FunctionName="SMSModel.Store.UpdateTag" />
+          <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="SMSModel.Store.UpdateUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

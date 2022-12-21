@@ -43,12 +43,14 @@ namespace BookRentalShopApp
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.관리MToolStripMenuItem,
             this.MnuExit});
-            this.menuStrip1.Location = new System.Drawing.Point(20, 60);
+            this.menuStrip1.Location = new System.Drawing.Point(23, 75);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(960, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1097, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,59 +63,61 @@ namespace BookRentalShopApp
             this.toolStripMenuItem1,
             this.MnuRental});
             this.관리MToolStripMenuItem.Name = "관리MToolStripMenuItem";
-            this.관리MToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.관리MToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.관리MToolStripMenuItem.Text = "관리(&M)";
             // 
             // MnuDivCode
             // 
             this.MnuDivCode.Name = "MnuDivCode";
-            this.MnuDivCode.Size = new System.Drawing.Size(180, 22);
+            this.MnuDivCode.Size = new System.Drawing.Size(172, 26);
             this.MnuDivCode.Text = "구분코드(&C)";
             this.MnuDivCode.Click += new System.EventHandler(this.MnuDivCode_Click);
             // 
             // MnuMember
             // 
             this.MnuMember.Name = "MnuMember";
-            this.MnuMember.Size = new System.Drawing.Size(180, 22);
+            this.MnuMember.Size = new System.Drawing.Size(172, 26);
             this.MnuMember.Text = "회원(&P)";
             this.MnuMember.Click += new System.EventHandler(this.MnuMember_Click);
             // 
             // MnuBooks
             // 
             this.MnuBooks.Name = "MnuBooks";
-            this.MnuBooks.Size = new System.Drawing.Size(180, 22);
+            this.MnuBooks.Size = new System.Drawing.Size(172, 26);
             this.MnuBooks.Text = "도서(&B)";
             this.MnuBooks.Click += new System.EventHandler(this.MnuBooks_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(169, 6);
             // 
             // MnuRental
             // 
             this.MnuRental.Name = "MnuRental";
-            this.MnuRental.Size = new System.Drawing.Size(180, 22);
+            this.MnuRental.Size = new System.Drawing.Size(172, 26);
             this.MnuRental.Text = "대여(&R)";
             this.MnuRental.Click += new System.EventHandler(this.MnuRental_Click);
             // 
             // MnuExit
             // 
             this.MnuExit.Name = "MnuExit";
-            this.MnuExit.Size = new System.Drawing.Size(58, 20);
+            this.MnuExit.Size = new System.Drawing.Size(72, 24);
             this.MnuExit.Text = "종료(&X)";
             this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
+            this.Padding = new System.Windows.Forms.Padding(23, 75, 23, 25);
             this.Text = "책 대여점 프로그램";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

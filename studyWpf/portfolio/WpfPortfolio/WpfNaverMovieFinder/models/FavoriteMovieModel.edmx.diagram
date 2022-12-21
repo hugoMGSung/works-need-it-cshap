@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d29e28b3fa654eeeb0017dd176ce0f80" Name="Diagram1">
-        <EntityTypeShape EntityType="OpenApiLabModel.TblFavoriteMovies" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="d7174a6f13f540309b107f56e8715e23" Name="Diagram1">
+        <EntityTypeShape EntityType="OpenApiLabModel.TblFavoriteMovies" Width="1.625" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

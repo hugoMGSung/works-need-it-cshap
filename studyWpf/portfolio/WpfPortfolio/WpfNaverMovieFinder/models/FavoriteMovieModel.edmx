@@ -4,21 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OpenApiLabModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OpenApiLabModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblFavoriteMovies">
           <Key>
             <PropertyRef Name="Idx" />
           </Key>
-          <Property Name="Idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
-          <Property Name="Link" Type="varchar" MaxLength="500" />
-          <Property Name="Image" Type="varchar" MaxLength="500" />
-          <Property Name="SubTitle" Type="varchar" MaxLength="1000" />
-          <Property Name="PubDate" Type="varchar" MaxLength="20" />
-          <Property Name="Director" Type="nvarchar" MaxLength="1000" />
-          <Property Name="Actor" Type="nvarchar" MaxLength="1000" />
-          <Property Name="UserRating" Type="varchar" MaxLength="10" />
-          <Property Name="RegDate" Type="datetime" Nullable="false" />
+          <Property Name="Idx" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Link" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="PubDate" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Director" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Actor" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="UserRating" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RegDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityContainer Name="OpenApiLabModelStoreContainer">
           <EntitySet Name="TblFavoriteMovies" EntityType="Self.TblFavoriteMovies" Schema="dbo" store:Type="Tables" />
@@ -32,16 +32,16 @@
           <Key>
             <PropertyRef Name="Idx" />
           </Key>
-          <Property Name="Idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="SubTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="PubDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Director" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Actor" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="UserRating" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Idx" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PubDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Actor" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRating" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityContainer Name="OpenApiLabEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TblFavoriteMovies" EntityType="Self.TblFavoriteMovies" />
@@ -84,7 +84,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
       </DesignerInfoPropertySet>
     </Options>
