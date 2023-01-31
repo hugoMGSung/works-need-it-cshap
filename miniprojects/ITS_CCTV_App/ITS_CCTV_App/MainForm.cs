@@ -19,7 +19,7 @@ namespace ITS_CCTV_App
     public partial class MainForm : Form
     {
         private string ApiUrl = "https://openapi.its.go.kr:9443/cctvInfo";
-        private string MyKey = "발급키";
+        private string MyKey = "c499f9ae2cc64281b517fc7ff3915f9c";
         private string CamType = "ex"; // ex:고속도로 its:국도 동적 구분할 것
         private string StreamType = "1"; //(1: 실시간 스트리밍(HLS) / 2: 동영상 파일 / 3: 정지 영상)
         private string GetType = "json"; // or xml
@@ -144,10 +144,7 @@ namespace ITS_CCTV_App
                 TopMost = true
             };
 
-#if DEBUG
-#else
             loading.Show();     
-#endif
         }
 
         private void LbxExCctv_SelectedIndexChanged(object sender, EventArgs e)

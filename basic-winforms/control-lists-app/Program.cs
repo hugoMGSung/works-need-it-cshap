@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace control_textbox_app
+namespace control_lists_app
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace control_textbox_app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmRichTextBox());
+            Application.Run(new Form1());
         }
     }
 }
