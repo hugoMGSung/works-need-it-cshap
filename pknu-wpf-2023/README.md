@@ -28,7 +28,7 @@ Windows Presentation Foundation
 	
 4일차 MVVM View
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/pknu-wpf-2023/main/images/wpf01.png" width="700" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/pknu-wpf-2023/images/wpf01.png" width="700" />
 	
 ## 5일차
 - WPF 응용
@@ -46,7 +46,7 @@ Windows Presentation Foundation
 	
 6일차 영화검색앱 중간
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/pknu-wpf-2023/main/images/wpf03.png" width="700" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/pknu-wpf-2023/images/wpf03.png" width="700" />
 
 ## 7일차
 - WPF 응용
@@ -67,11 +67,11 @@ Windows Presentation Foundation
 
 영화검색앱
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/pknu-wpf-2023/main/images/wpf05.gif" width="700" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/pknu-wpf-2023/images/wpf05.gif" width="700" />
 
 미세먼지확인 앱 중간
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/pknu-wpf-2023/main/images/wpf06.png" width="700" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/pknu-wpf-2023/images/wpf06.png" width="700" />
 
 ## 9일차
 - WPF 응용
@@ -86,5 +86,5 @@ Windows Presentation Foundation
 
 9일차 미세먼지확인 앱
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/pknu-wpf-2023/main/images/wpf07.gif" width="700" />
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/pknu-wpf-2023/images/wpf07.gif" width="700" />
 
