@@ -1,0 +1,29 @@
+﻿<mah:MetroWindow 
+    x:Class="wp07_mahApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:wp07_mahApp"
+    mc:Ignorable="d"
+    Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <!--<mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <Button ToolTip="Github site">
+                <iconPacks:PackIconModern Kind="SocialGithubOctocat" Width="24" Height="24" />
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>-->
+    <mah:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconModern Kind="YoutubePlay" Margin="10,4,0,0" Width="22" Height="22" Foreground="White" />
+        </DataTemplate>
+    </mah:MetroWindow.IconTemplate>
+    
+    <Grid>
+        <Button Content="Click" HorizontalAlignment="Left" Margin="188,120,0,0" VerticalAlignment="Top" Height="56" Width="113"/>
+
+    </Grid>
+</mah:MetroWindow>

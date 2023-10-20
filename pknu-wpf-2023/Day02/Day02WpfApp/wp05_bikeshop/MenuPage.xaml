@@ -1,0 +1,41 @@
+﻿<Page x:Class="wp05_bikeshop.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wp05_bikeshop"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="760"
+      Title="메뉴페이지" Background="Azure">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Transparent" Margin="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" x:Name="BtnMenuProducts" Content="제품관리" Margin="10" FontSize="25" />
+            <Button Grid.Column="1" x:Name="BtnMenuSupport" Content="보증관리" Margin="10" FontSize="25" Click="BtnMenuSupport_Click" />
+            <Button Grid.Column="2" x:Name="BtnMenuContact" Content="연락관리" Margin="10" FontSize="25"
+                    Click="BtnMenuContact_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="BlanchedAlmond" Margin="40">
+            <Label Content="바이크샵 2023" FontSize="45" FontWeight="ExtraBold" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Page>

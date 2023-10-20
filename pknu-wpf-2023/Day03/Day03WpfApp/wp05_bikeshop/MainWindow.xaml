@@ -1,0 +1,18 @@
+﻿<Window 
+    x:Class="wp05_bikeshop.MainWindow" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:wp05_bikeshop" 
+    mc:Ignorable="d" 
+    Title="바이크 샵" 
+    Height="480" Width="760" 
+    MaxWidth="760" MaxHeight="480" MinWidth="760" MinHeight="480"
+    FontFamily="NanumGothic">
+    <Grid>
+        <!-- 자식페이지를 할당할 수 있는 컨트롤 -->
+        <Frame x:Name="MainFrame" Background="Gainsboro" Source="/MenuPage.xaml"
+               NavigationUIVisibility="Visible" />
+    </Grid>
+</Window>

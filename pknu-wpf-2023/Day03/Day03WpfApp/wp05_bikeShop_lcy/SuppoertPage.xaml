@@ -1,0 +1,60 @@
+﻿<Page x:Class="wp05_bikeShop.SuppoertPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wp05_bikeShop"
+      xmlns:Logics="clr-namespace:wp05_bikeShop.Logics"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="600"  WindowTitle="보증페이지"
+      Title="보증페이지" Background="SeaShell" FontFamily="NanumGothic"
+      Loaded="Page_Loaded">
+    <Page.Resources>
+        <Logics:MyConverter x:Key="myConv"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="130"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <!--<Label>
+            -->
+        <!-- 사용자가 만든 클래스는 반드시 재컴파일(빌드) 이후 사용! 필수!!!! -->
+        <!--
+            <Logics:Car Names="아이오닉" Speed="230" Colour="White"/>
+        </Label>-->
+
+        <Label Grid.Row="0" Grid.Column="0" Content="보증 페이지" Grid.ColumnSpan="2" Margin="50,0,20,0" VerticalAlignment="Center" 
+               FontSize="25" FontWeight="Bold" Foreground="CornflowerBlue"/>
+
+        <Button Grid.Row="2" Grid.Column="1" Content="전송" Margin="10,3,50,25" Width="70"
+                     Foreground="CornflowerBlue" Background="PeachPuff">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <TextBox x:Name="TxtSample" Grid.Row="2" Grid.Column="0" Text="" 
+                 Margin="10,3,50,25"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20">
+            <Slider x:Name="SldValue" Maximum="100" Ticks="10" Value="0"/>
+            <ProgressBar Height="30"  Margin="0, 20, 0, 20" 
+                         Value="{Binding Value, ElementName=SldValue, Mode=OneWay}"/>
+            <Label x:Name="LblValue" Content="{Binding Value, ElementName=SldValue}" 
+                   FontSize="20" HorizontalAlignment="Center"/>
+
+            <TextBox x:Name="TxtSource" Text="150" FontSize="14"/>
+            <TextBox Text="{Binding Text, ElementName=TxtSource, Mode=OneWay, Converter={StaticResource myConv}}" 
+                     FontSize="14"/>
+        </StackPanel>
+    </Grid>
+</Page>
