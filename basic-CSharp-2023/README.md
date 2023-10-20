@@ -25,7 +25,7 @@
 	
 3일차 윈폼 학습결과
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/basic-CSharp-2023/main/images/winforms01.png" width="700">
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/basic-CSharp-2023/images/winforms01.png" width="700">
 	
 ## 4일차
 - C# 기본
@@ -49,7 +49,7 @@
 	
 5일차 탐색기 만들기 중
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/basic-CSharp-2023/main/images/winforms02.png" width="700">
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/basic-CSharp-2023/images/winforms02.png" width="700">
 
 ## 6일차
 - C# 기본
@@ -68,7 +68,7 @@
 	
 6일차 탐색기 만들기 완료
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/basic-CSharp-2023/main/images/winforms03.png" width="700">
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/basic-CSharp-2023/images/winforms03.png" width="700">
 
 	
 ## 7일차
@@ -94,7 +94,7 @@
 
 심플 메모장
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/basic-CSharp-2023/main/images/winforms04.png" width="700">
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/basic-CSharp-2023/images/winforms04.png" width="700">
 
 	
 ## 9일차
@@ -113,4 +113,4 @@
 
 10일차 책대여점 프로그램
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/basic-CSharp-2023/main/images/winforms05.png" width="700">
+<img src="https://raw.githubusercontent.com/hugoMGSung/works-need-it-cshap/main/basic-CSharp-2023/images/winforms05.png" width="700">
